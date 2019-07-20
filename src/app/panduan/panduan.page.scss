@@ -1,0 +1,22 @@
+
+  
+  .square {
+    width: 31%;
+  }
+  .square:after {
+    content: "";
+    display: block;
+    padding-bottom: 0%;
+  }
+
+  ion-col > div {
+    background-color: #f7f7f7;
+    border: solid 1px #ddd;
+    padding: 10px;
+  }
+  
+  ion-title {
+    color: black;
+    font-family: 'Lobster', cursive;
+  }  
+  
