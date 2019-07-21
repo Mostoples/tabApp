@@ -11,7 +11,7 @@ export class Tab2Page {
     spaceBetween: -22,
     centeredSlides: true,
     slidesPreview: 1.6,
-  }
+  };
 
   menu = [
     [
