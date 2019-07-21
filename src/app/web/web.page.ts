@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-web',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WebPage implements OnInit {
 
-  constructor() { }
+  openWeb() {
+    this.iab.create('https://pkkmb.uns.ac.id/', '_blank');
+  }
+
+  openWebSys() {
+    this.iab.create('https://pkkmb.uns.ac.id/', '_system');
+  }
+
+  constructor(private iab: InAppBrowser) { }
 
   ngOnInit() {
+    this.openWeb();
   }
 
 }

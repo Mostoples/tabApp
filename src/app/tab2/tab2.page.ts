@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-tab2',
@@ -10,9 +9,15 @@ export class Tab2Page {
 
   menu = [
     [
+      { name: 'help', title: 'PKKMB', route: '/tentang' }
+    ],
+    [
       { name: 'book', title: 'Panduan', route: '/panduan' },
-      { name: 'help', title: 'PKKMB', route: '/tentang' },
-      { name: 'globe', title: 'Website', route: '/web'}
+
+      { name: 'globe', title: 'Website', route: '/web' }
+    ],
+    [
+      { name: 'paper-plane', title: 'Presensi', route: '/presensi' }
     ],
     [
       { name: 'people', title: 'Grup', route: '/grup' },
@@ -20,7 +25,7 @@ export class Tab2Page {
       { name: 'pin', title: 'Lokasi', route: '/lokasi' }
     ]
   ];
-  
+
   ads = [
     // tslint:disable-next-line: max-line-length
     'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Hyundai_i40_with_Dalkin_Advertising_operating_under_Comfort_taxis.jpg/512px-Hyundai_i40_with_Dalkin_Advertising_operating_under_Comfort_taxis.jpg',

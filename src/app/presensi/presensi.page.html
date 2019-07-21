@@ -1,9 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>presensi</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+    <ion-title>Presensi</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <ion-item *ngIf="ngOnInit" disabled="{{ display }}">
+    <ion-input type="text" placeholder="Type Something" [(ngModel)]="qrData"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="createCode()"><ion-icon name="barcode"></ion-icon>&nbsp;Create Code</ion-button>
+  <ion-button expand="block" (click)="scanCode()"><ion-icon name="qr-scanner"></ion-icon>&nbsp;Scan Code</ion-button>
 
+  <ion-card *ngIf="createdCode">
+    <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+    <ion-card-content>
+      <p>Value: {{ createdCode }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="scannedCode">
+    <ion-card-content>
+      <p>Result from scan: {{ scannedCode }}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

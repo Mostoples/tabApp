@@ -8,7 +8,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding-top>
   <ion-slides>
     <ion-slide *ngFor="let mage of ads">
       <img src="{{ mage }}">
@@ -18,7 +18,7 @@
   <ion-card>
     <ion-card-header>
       <ion-item>
-        <ion-thumbnail slot="end" margin>
+        <ion-thumbnail slot="end" margin-left margin-bottom>
           <ion-avatar>
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Color_icon_blue.svg/256px-Color_icon_blue.svg.png">
@@ -33,15 +33,9 @@
 
     <ion-card-content>
       <ion-grid>
-        <ion-row>
-          <ion-col>
-            <ion-button expand="block" class="butt0" routerLink="/presensi">Presensi</ion-button>
-          </ion-col>
-        </ion-row>
-
         <ion-row *ngFor="let item of menu">
           <ion-col class="square" *ngFor="let it of item">
-            <ion-button class="butt" routerLink="/{{ it.route }}"  >
+            <ion-button class="butt" routerLink="/{{ it.route }}">
               <ion-label>
                 <ion-icon name="{{ it.name }}"></ion-icon>
                 <div>{{ it.title }}</div>
