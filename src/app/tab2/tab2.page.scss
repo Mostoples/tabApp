@@ -11,6 +11,7 @@ section:not(.full-width),
   padding: 0 10px;
 }
 .square {
+  position: relative;
   width: 31%;
 }
 .square:after {
@@ -42,4 +43,11 @@ ion-title {
 }  
 ion-card-title {
   font-size: 36px;
+}
+ion-slides {
+  padding: 0;
+  margin: 2px 0;
+}
+ion-slide {
+  padding: 0 2px;
 }

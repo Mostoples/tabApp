@@ -13,7 +13,6 @@ import { AppComponent } from './app.component';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +23,6 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
     SplashScreen,
     EmailComposer,
     BarcodeScanner,
-    InAppBrowser,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

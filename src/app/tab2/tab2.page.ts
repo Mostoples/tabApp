@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
+  sliderConf = {
+    spaceBetween: -22,
+    centeredSlides: true,
+    slidesPreview: 1.6,
+  }
+
   menu = [
     [
       { name: 'help', title: 'PKKMB', route: '/tentang' }
@@ -14,7 +20,7 @@ export class Tab2Page {
     [
       { name: 'book', title: 'Panduan', route: '/panduan' },
 
-      { name: 'globe', title: 'Website', route: '/web' }
+      { name: 'globe', title: 'Website', route: 'https://pkkmb.uns.ac.id/' }
     ],
     [
       { name: 'paper-plane', title: 'Presensi', route: '/presensi' }
@@ -22,7 +28,7 @@ export class Tab2Page {
     [
       { name: 'people', title: 'Grup', route: '/grup' },
       { name: 'bookmarks', title: 'Agenda', route: '/agenda' },
-      { name: 'pin', title: 'Lokasi', route: '/lokasi' }
+      { name: 'pin', title: 'Lokasi', route: 'https://maps.google.com/' }
     ]
   ];
 
