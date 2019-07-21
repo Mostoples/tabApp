@@ -1,22 +1,25 @@
 <ion-header>
-  <ion-toolbar>
-      <ion-toolbar color='primary'>
-          <ion-buttons slot='start'><ion-back-button defaultHref="/tabs"></ion-back-button></ion-buttons>
-          <ion-title>Aduan</ion-title>
-      </ion-toolbar>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Profil</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content margin>
+    <ion-card button="true">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Color_icon_blue.svg/256px-Color_icon_blue.svg.png">
+    </ion-card>
     <ion-item>
-        <ion-label position="floating">Judul Aduan</ion-label>
-        <ion-input type='text' [(ngModel)]="subject" required></ion-input>
+      <ion-icon name="add" slot="start"></ion-icon>
+      <ion-label>
+        <h4>Nomor</h4>
+        <p>1234567890</p>
+      </ion-label>
     </ion-item>
     <ion-item>
-        <ion-label position="floating">Aduan Anda</ion-label>
-        <ion-input type='text' [(ngModel)]="isiEmail" value='' placeholder='here' required></ion-input>
+      <ion-label>Nama</ion-label>
+      <ion-input>Mak Wo Ouwo</ion-input>
     </ion-item>
-    <ion-item>
-        <ion-button color='primary' (click)='send()'>Send</ion-button>
-    </ion-item>
-</ion-content>
+  </ion-content>

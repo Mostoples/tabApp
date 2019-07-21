@@ -14,26 +14,4 @@ export class Tab3Page {
 
   constructor(private emailComposer: EmailComposer) {}
 
-  send(){
-    
-     
-     let email = {
-       to: 'mostoplesam@gmail.com',
-      //  cc: 'erika@mustermann.de',
-      //  bcc: ['john@doe.com', 'jane@doe.com'],
-      //  attachments: [
-      //    'file://img/logo.png',
-      //    'res://icon.png',
-      //    'base64:icon.png//iVBORw0KGgoAAAANSUhEUg...',
-      //    'file://README.pdf'
-      //  ],
-       subject: this.subject,
-       body: this.isiEmail,
-       isHtml: true
-     }
-     
-     // Send a text message using default options
-     this.emailComposer.open(email);
-  }
-
 }
