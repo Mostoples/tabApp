@@ -1,9 +1,37 @@
-<ion-header>
+<ion-header style="background: #006acc;height: 35px; text-align: center; color: whitesmoke;padding: 5px">
   <ion-toolbar>
-    <ion-title>grup</ion-title>
+    <ion-title>
+      Grouping
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <ion-list>
+  <h4 style="margin-left: 5px">Kakak Pendamping</h4>
+    <div class="kambing list"  style="margin-left: 5px" *ngFor="let p of data2">
+      <br>
+      <ion-item class="item-avatar">
+          <img src="{{p.fotokambing}}" height="80px" width="80px" style="border-radius: 90px; margin-left: 10px;">
+        <ion-card-header>
+          <ion-card-subtitle>{{p.namakambing}}</ion-card-subtitle>
+          <ion-card-subtitle>{{p.prodi}} ({{p.fakultas}})</ion-card-subtitle>
+        </ion-card-header>
+      </ion-item>
+    </div>
+    </ion-list>
+    <br>
+    <ion-list>
+    <h4 style="margin-left: 5px">Peserta PKKMB</h4>
+    <div class="maba list"  style="margin-left: 5px" *ngFor="let p of data1">
+      <br>
+      <ion-item class="item-avatar">
+        <img src="{{p.foto}}" height="80px" width="80px" style="border-radius: 90px; float: left;">
+        <ion-card-header>
+          <ion-card-subtitle>{{p.nama}}</ion-card-subtitle>
+          <ion-card-subtitle>{{p.kelompok}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-item>
+    </div>
+    </ion-list>
 </ion-content>
