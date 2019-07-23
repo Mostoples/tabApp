@@ -1,10 +1,6 @@
-<style>
-  @import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
-</style>
-
 <ion-header>
   <ion-toolbar size="large">
-    <ion-title class="ion-text-center"><b>PKKMB UNS 2019</b></ion-title>
+    <ion-title id="ion-text-center" class="philosopher"><b>PKKMB UNS 2019</b></ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -26,23 +22,24 @@
               <ion-thumbnail slot="end" margin-left margin-bottom>
                 <ion-avatar>
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Color_icon_blue.svg/256px-Color_icon_blue.svg.png">
+                  src="assets/icon/custom/profile.svg">
                 </ion-avatar>
               </ion-thumbnail>
               <ion-label>
-                <ion-card-subtitle>Selamat datang,</ion-card-subtitle>
-                <ion-card-title>Nama Orang</ion-card-title>
+                <ion-card-subtitle class="philosopher" >Selamat datang,</ion-card-subtitle>
+                <ion-card-title class="philosopher" >Kamu</ion-card-title>
               </ion-label>
             </ion-item>
           </ion-card-header>
 
           <ion-card-content>
-            <ion-grid>
+            <ion-grid class="roboto">
               <ion-row *ngFor="let item of menu">
                 <ion-col class="square" *ngFor="let it of item">
-                  <ion-button class="butt" href="{{ it.route }}">
+                  <ion-button class="butt" href="{{ it.route }}" >
                     <ion-label>
-                      <ion-icon name="{{ it.name }}"></ion-icon>
+                        
+                      <ion-icon name="{{ it.name }}" src="{{it.custom}}" ></ion-icon>
                       <div>{{ it.title }}</div>
                     </ion-label>
                   </ion-button>
@@ -58,13 +55,13 @@
       <ion-col size-md="6" offset-md="3">
         <ion-list>
           <ion-list-header>
-            <ion-title class="ion-text-center">Daftar Agendamu~</ion-title>
+            <ion-title id="ion-text-center" class="philosopher">Daftar Agenda</ion-title>
           </ion-list-header>
           <ion-item-group>
             <ion-item-divider color="light">
               <ion-label>Agenda Saat ini</ion-label>
             </ion-item-divider>
-            <ion-item lines="none">
+            <ion-item lines="none" >
               <ion-label>Pramuka</ion-label>
             </ion-item>
             <ion-item-divider color="light">

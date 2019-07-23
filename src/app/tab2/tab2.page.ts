@@ -15,20 +15,20 @@ export class Tab2Page {
 
   menu = [
     [
-      { name: 'help', title: 'PKKMB', route: '/tentang' }
+      { name: '', title: 'PKKMB', route: '/tentang', custom:'assets/icon/custom/pkkmb-1.svg'}
     ],
     [
-      { name: 'book', title: 'Panduan', route: '/panduan' },
+      { name: 'book', title: 'Panduan', route: '/panduan', custom:'' },
 
-      { name: 'globe', title: 'Website', route: 'https://pkkmb.uns.ac.id/' }
+      { name: 'globe', title: 'Website', route: 'https://pkkmb.uns.ac.id/', custom:'' }
     ],
     [
-      { name: 'paper-plane', title: 'Presensi', route: '/presensi' }
+      { name: 'clipboard', title: 'Presensi', route: '/presensi', custom:'' }
     ],
     [
-      { name: 'people', title: 'Grup', route: '/grup' },
-      { name: 'bookmarks', title: 'Agenda', route: '/agenda' },
-      { name: 'pin', title: 'Lokasi', route: 'https://maps.google.com/' }
+      { name: 'people', title: 'Grup', route: '/grup', custom:'' },
+      { name: 'bookmarks', title: 'Agenda', route: '/agenda', custom:'' },
+      { name: 'pin', title: 'Lokasi', route: 'https://maps.google.com/', custom:'' }
     ]
   ];
 

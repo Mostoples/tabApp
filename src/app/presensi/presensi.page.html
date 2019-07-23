@@ -3,11 +3,11 @@
       <ion-buttons slot="start">
         <ion-back-button defaultHref="/"></ion-back-button>
       </ion-buttons>
-    <ion-title>Presensi</ion-title>
+    <ion-title class="philosopher">Presensi</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="roboto">
   <ion-item *ngIf="ngOnInit" disabled="{{ display }}">
     <ion-input type="text" placeholder="Type Something" [(ngModel)]="qrData"></ion-input>
   </ion-item>
