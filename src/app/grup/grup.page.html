@@ -1,5 +1,6 @@
-<ion-header style="background: #006acc;height: 35px; text-align: center; color: whitesmoke;padding: 5px">
+<ion-header>
   <ion-toolbar>
+    <ion-buttons slot='start'><ion-back-button defaultHref="tabs"></ion-back-button></ion-buttons>
     <ion-title>
       Grouping
     </ion-title>
@@ -7,31 +8,37 @@
 </ion-header>
 
 <ion-content>
-    <ion-list>
-  <h4 style="margin-left: 5px">Kakak Pendamping</h4>
-    <div class="kambing list"  style="margin-left: 5px" *ngFor="let p of data2">
-      <br>
-      <ion-item class="item-avatar">
-          <img src="{{p.fotokambing}}" height="80px" width="80px" style="border-radius: 90px; margin-left: 10px;">
-        <ion-card-header>
-          <ion-card-subtitle>{{p.namakambing}}</ion-card-subtitle>
-          <ion-card-subtitle>{{p.prodi}} ({{p.fakultas}})</ion-card-subtitle>
-        </ion-card-header>
+    <ion-card>
+        <ion-card-header color="light">
+            <ion-label>Kakak Pembimbing</ion-label>
+          </ion-card-header>
+      <ion-item *ngFor="let kambing of data2">
+          <ion-thumbnail slot="end" margin-left margin-bottom>
+              <ion-avatar>
+                <img src="{{kambing.fotokambing}}">
+              </ion-avatar>
+            </ion-thumbnail>
+            <ion-label>
+                <ion-card-subtitle>{{kambing.namakambing}}</ion-card-subtitle>
+                <ion-card-subtitle>{{kambing.prodi}} ({{kambing.fakultas}})</ion-card-subtitle>
+            </ion-label>
       </ion-item>
-    </div>
-    </ion-list>
-    <br>
-    <ion-list>
-    <h4 style="margin-left: 5px">Peserta PKKMB</h4>
-    <div class="maba list"  style="margin-left: 5px" *ngFor="let p of data1">
-      <br>
-      <ion-item class="item-avatar">
-        <img src="{{p.foto}}" height="80px" width="80px" style="border-radius: 90px; float: left;">
-        <ion-card-header>
-          <ion-card-subtitle>{{p.nama}}</ion-card-subtitle>
-          <ion-card-subtitle>{{p.kelompok}}</ion-card-subtitle>
-        </ion-card-header>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header color="light">
+            <ion-label>Peserta PKKMB</ion-label>
+          </ion-card-header>
+      <ion-item *ngFor="let maba of data1">
+          <ion-thumbnail slot="start" margin-left margin-bottom>
+              <ion-avatar>
+                <img src="{{maba.foto}}">
+              </ion-avatar>
+            </ion-thumbnail>
+            <ion-label>
+                <ion-card-subtitle>{{maba.nama}}</ion-card-subtitle>
+                <ion-card-subtitle>{{maba.kelompok}}</ion-card-subtitle>
+            </ion-label>
       </ion-item>
-    </div>
-    </ion-list>
+    </ion-card>
 </ion-content>

@@ -14,10 +14,12 @@ import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, NgxQRCodeModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, NgxQRCodeModule, HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,
