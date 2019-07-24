@@ -39,9 +39,9 @@
                   <ion-button class="butt" href="{{ it.route }}" >
                     <ion-label>
                         
-                      <ion-icon name="{{ it.name }}" src="{{it.custom}}" ></ion-icon>
+                      <ion-icon name="{{ it.name }}" src="{{it.custom}}" slot="start"></ion-icon>
                       <div>{{ it.title }}</div>
-                    </ion-label>
+                    </ion-label>&nbsp;{{ it.title2 }}
                   </ion-button>
                 </ion-col>
               </ion-row>

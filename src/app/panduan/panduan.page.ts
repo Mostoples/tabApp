@@ -15,13 +15,13 @@ export class PanduanPage implements OnInit {
       bab : '',
       icon : '',
       page : 1,
-      content : ['jaja','ahha','jajaj']
+      content : ['jaja', 'ahha', 'jajaj']
     },
     {
       bab : '',
       icon : '',
       page : 1,
-      content : ['jaja','ahha','jajaj']
+      content : ['jaja', 'ahha', 'jajaj']
     }
   ];
 
@@ -30,16 +30,16 @@ export class PanduanPage implements OnInit {
       bab : '',
       icon : '',
       page : 1,
-      content : ['jaja','ahha','jajaj']
+      content : ['jaja', 'ahha', 'jajaj']
     },
     {
       bab : '',
       icon : '',
       page : 1,
-      content : ['jaja','ahha','jajaj']
+      content : ['jaja', 'ahha', 'jajaj']
     }
   ];
-  
+
 
   @ViewChild('slides') slider: IonSlides;
   segment = 0;
@@ -59,13 +59,13 @@ export class PanduanPage implements OnInit {
   ngOnInit() {
   }
 
-  changeState(pilihan: number){
-    if(pilihan === 1){
+  changeState(pilihan: number) {
+    if (pilihan === 1) {
       this.choice = 'maba';
-    }else if(pilihan === 2){
+    } else if (pilihan === 2) {
       this.choice = 'kambing';
     }
-    
+
   }
 
 }
