@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthenticationService } from '../services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab2',
@@ -6,6 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+
+  btn = 'btn';
+  lnk = 'lnk';
 
   sliderConf = {
     spaceBetween: -22,
@@ -15,20 +20,20 @@ export class Tab2Page {
 
   menu = [
     [
-      { name: '', title: '', title2: 'Tentang PKKMB', route: '/tentang', custom: 'assets/icon/custom/pkkmb-1.svg'}
+      { name: '', title2: 'Tentang PKKMB', route: 'tabs/tentang', type: 'btn', custom: 'assets/icon/custom/pkkmb-1.svg'}
     ],
     [
-      { name: 'book', title: 'Panduan', title2: '', route: '/panduan', custom: '' },
+      { name: 'book', title: 'Panduan', route: 'tabs/panduan', type: 'btn' },
 
-      { name: 'globe', title: 'Website', title2: '', route: 'https://pkkmb.uns.ac.id/', custom: '' }
+      { name: 'globe', title: 'Website', route: 'https://pkkmb.uns.ac.id/', type: 'lnk' }
     ],
     [
-      { name: 'clipboard', title: '', title2: 'Presensi', route: '/presensi', custom: '' }
+      { name: 'clipboard', title2: 'Presensi', route: 'tabs/presensi', type: 'btn' }
     ],
     [
-      { name: 'people', title: 'Grup', title2: '', route: '/grup' },
-      { name: 'bookmarks', title: 'Agenda', title2: '', route: '/agenda' },
-      { name: 'pin', title: 'Lokasi', title2: '', route: 'https://maps.google.com/' }
+      { name: 'people', title: 'Grup', route: 'tabs/grup', type: 'btn' },
+      { name: 'bookmarks', title: 'Agenda', route: 'tabs/agenda', type: 'btn' },
+      { name: 'pin', title: 'Lokasi', route: 'https://maps.google.com/', type: 'lnk' }
     ]
   ];
 
@@ -41,6 +46,14 @@ export class Tab2Page {
     'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Hyundai_i40_with_Dalkin_Advertising_operating_under_Comfort_taxis.jpg/512px-Hyundai_i40_with_Dalkin_Advertising_operating_under_Comfort_taxis.jpg'
   ];
 
-constructor() {}
+constructor(
+  private authenticationService: AuthenticationService,
+  private router: Router,
+  ) {}
+
+next(para) {
+  this.authenticationService.isAuthenticated();
+  this.router.navigate([para]);
+}
 
 }
