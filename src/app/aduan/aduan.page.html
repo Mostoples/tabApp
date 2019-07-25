@@ -8,15 +8,51 @@
 </ion-header>
 
 <ion-content>
-    <ion-item>
-        <ion-label position="floating">Judul Aduan</ion-label>
-        <ion-input type='text' [(ngModel)]="subject" required></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label position="floating">Aduan Anda</ion-label>
-        <ion-input type='text' [(ngModel)]="isiEmail" value='' placeholder='here' required></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-button color='primary' (click)='send()'>Send</ion-button>
-    </ion-item>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-margin-top"> 
+          <ion-label style="font-family : Philosopher; font-weight: bold; font-size: 20px;" >Tantang apa yang anda keluhkan ?</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col> 
+            <ion-label>Tuliskan judul keluhan anda dibawah ini...</ion-label>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col> 
+          <ion-item>
+              <ion-input type='text' [(ngModel)]="subject" placeholder='Judul..' required></ion-input>
+          </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col class="ion-margin-top"> 
+            <ion-label style="font-family : Philosopher; font-weight: bold; font-size: 20px;" >Beritahu kami detail masalah yang anda alami</ion-label>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col> 
+            <ion-label>Deskripsikan masalah yang anda alami</ion-label>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col> 
+          <ion-item>
+              <ion-input type='text' [(ngModel)]="isiEmail" value='' placeholder='Deskripsi..' required></ion-input>
+          </ion-item>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col> 
+          
+              <ion-button size='large' color='primary' (click)='send()'>
+                  <ion-icon name='mail'></ion-icon>
+                  <ion-label>Kirim</ion-label>
+              </ion-button>
+          
+        </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
