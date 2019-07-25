@@ -1,9 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>aduan</ion-title>
+      <ion-toolbar color='primary'>
+          <ion-buttons slot='start'><ion-back-button defaultHref="/tabs"></ion-back-button></ion-buttons>
+          <ion-title>Aduan</ion-title>
+      </ion-toolbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <ion-item>
+        <ion-label position="floating">Judul Aduan</ion-label>
+        <ion-input type='text' [(ngModel)]="subject" required></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Aduan Anda</ion-label>
+        <ion-input type='text' [(ngModel)]="isiEmail" value='' placeholder='here' required></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-button color='primary' (click)='send()'>Send</ion-button>
+    </ion-item>
 </ion-content>
