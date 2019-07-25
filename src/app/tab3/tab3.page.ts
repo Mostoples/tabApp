@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { AuthenticationService } from '../services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab3',
@@ -17,11 +18,17 @@ export class Tab3Page {
 
   constructor(
     private emailComposer: EmailComposer,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private router: Router
     ) {}
 
   logoutUser() {
     this.authService.logout();
+  }
+
+  next(para) {
+    this.authService.isAuthenticated();
+    this.router.navigate([para]);
   }
 
 }
