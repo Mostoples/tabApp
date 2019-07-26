@@ -25,10 +25,12 @@
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-input type="text" clearInput="true" placeholder="Username" required></ion-input>
+              <ion-icon name="person"></ion-icon>
+                <ion-input type="text" clearInput="true" placeholder="Username" required></ion-input>
           </ion-item>
           <ion-item>
-            <ion-input type="password" clearInput="true" placeholder="Password" required=true></ion-input>
+              <ion-icon name="lock"></ion-icon>
+                <ion-input type="password" clearInput="true" placeholder="Password" required=true></ion-input>
           </ion-item>
           <ion-button expand="block" (click)="loginUser()">login</ion-button>
           <div text-center>
@@ -42,10 +44,12 @@
 
   <div *ngIf="define3">
     <ion-item>
-      <ion-input type="text" clearInput="true" placeholder="Nomor Pendaftaran (ID)" required="true"></ion-input>
+        <ion-icon name="person"></ion-icon>
+          <ion-input type="text" clearInput="true" placeholder="Nomor Pendaftaran (ID)" required="true"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input type="password" clearInput="true" placeholder="Kode Aktivasi" required="true"></ion-input>
+        <ion-icon name="key"></ion-icon>
+          <ion-input type="password" clearInput="true" placeholder="Kode Aktivasi" required="true"></ion-input>
     </ion-item>
     <ion-button expand="block" (click)="loginUser()">Aktivasi</ion-button>
     <div text-center>
