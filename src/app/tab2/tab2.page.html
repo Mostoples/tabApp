@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [scrollEvents]="true" #content>
   <ion-slides [options]="sliderConf">
     <ion-slide *ngFor="let mage of ads">
       <ion-card>
