@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
+import { IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  @ViewChild('content') private content: any;
 
   btn = 'btn';
   lnk = 'lnk';
@@ -46,14 +48,22 @@ export class Tab2Page {
     'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Hyundai_i40_with_Dalkin_Advertising_operating_under_Comfort_taxis.jpg/512px-Hyundai_i40_with_Dalkin_Advertising_operating_under_Comfort_taxis.jpg'
   ];
 
-constructor(
-  private authenticationService: AuthenticationService,
-  private router: Router,
-  ) {}
+  constructor(
+    private authenticationService: AuthenticationService,
+    private router: Router,
+    ) {}
 
-next(para) {
-  this.authenticationService.isAuthenticated();
-  this.router.navigate([para]);
+ionViewWillEnter() {
+  this.scrollToBottomOnInit();
 }
+
+scrollToBottomOnInit() {
+  this.content.scrollToTop(300);
+}
+
+  next(para) {
+    this.authenticationService.isAuthenticated();
+    this.router.navigate([para]);
+  }
 
 }
