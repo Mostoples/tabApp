@@ -14,11 +14,7 @@ export class Tab2Page {
   btn = 'btn';
   lnk = 'lnk';
 
-  sliderConf = {
-    spaceBetween: -22,
-    centeredSlides: true,
-    slidesPreview: 1.6,
-  };
+  sliderConf:{};  
 
   menu = [
     [
@@ -51,10 +47,23 @@ export class Tab2Page {
   constructor(
     private authenticationService: AuthenticationService,
     private router: Router,
-    ) {}
+    ) {
+        
+
+    }
 
 ionViewWillEnter() {
   this.scrollToBottomOnInit();
+    this.sliderConf = {
+    spaceBetween: -22,
+    centeredSlides: true,
+    slidesPreview: 1.6,
+    loop: true,
+    autoplay:true
+    
+  };
+  
+  
 }
 
 scrollToBottomOnInit() {

@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content [scrollEvents]="true" #content>
-  <ion-slides [options]="sliderConf">
+  <ion-slides [options]="sliderConf" pager="true">
     <ion-slide *ngFor="let mage of ads">
       <ion-card>
         <img src="{{ mage }}">
