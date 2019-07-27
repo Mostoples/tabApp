@@ -2,29 +2,17 @@
 
 </ion-header>
 
-<ion-content padding-top>
-  <ion-grid>
-    <ion-row justify-content-center align-items-center>
+<ion-content>
+  <ion-grid style="height: 100%" text-center>
+    <ion-row justify-content-center align-items-center style="height: 100%">
       <ion-col>
         <ion-button expand="full" *ngIf="define1" (click)="login()">login~</ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row justify-content-center align-items-center>
-      <ion-col>
         <ion-button expand="full" *ngIf="define1" (click)="activate()">Aktivasi Akun</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
   <div *ngIf="define2" >
-    <ion-grid>
-      <ion-row padding-bottom justify-content-center align-items-center>
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Color_icon_blue.svg/256px-Color_icon_blue.svg.png">
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-item>
+        <img src="assets/icon/icon.png" height="200 px" width="150 px">
+        <br>
+        
+          <ion-item margin-top>
               <ion-icon name="person"></ion-icon>
                 <ion-input type="text" clearInput="true" placeholder="Username" required></ion-input>
           </ion-item>
@@ -37,9 +25,6 @@
             <p>Belum aktivasi? <a (click)="activate()">aktivasi akun</a> terlebih dahulu.</p>
             <p>atau kembali ke <a (click)="backto()">halaman depan</a></p>
           </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
   </div>
 
   <div *ngIf="define3">
@@ -57,5 +42,9 @@
       <p>atau kembali ke <a (click)="backto()">halaman depan</a></p>
     </div>
   </div>
+
+    </ion-col>
+  </ion-row>
+</ion-grid>
 
 </ion-content>
