@@ -1,50 +1,79 @@
-<ion-header>
-
-</ion-header>
-
 <ion-content>
   <ion-grid style="height: 100%" text-center>
     <ion-row justify-content-center align-items-center style="height: 100%">
       <ion-col>
-        <ion-button expand="full" *ngIf="define1" (click)="login()">login~</ion-button>
-        <ion-button expand="full" *ngIf="define1" (click)="activate()">Aktivasi Akun</ion-button>
-  <div *ngIf="define2" >
-        <img src="assets/icon/icon.png" height="200 px" width="150 px">
-        <br>
-        
-          <ion-item margin-top>
+
+        <div *ngIf="define1">
+          <ion-button expand="full" shape="round" (click)="getData(login())">login</ion-button>
+          <ion-button expand="full" shape="round" (click)="getData(activate())">Aktivasi Akun</ion-button>
+        </div>
+
+        <div *ngIf="define2">
+          <form (ngSubmit)="onLogin(f)" #f=ngForm>
+            <img src="assets/icon/icon.png" height="200 px" width="150 px">
+            <ion-item margin-top>
               <ion-icon name="person"></ion-icon>
-                <ion-input type="text" clearInput="true" placeholder="Username" required></ion-input>
+              <ion-input type="text" clearInput="true" maxlength="15" placeholder=" Username" required name="name" ngModel></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="lock"></ion-icon>
+              <ion-input type="password" clearInput="true" placeholder=" Password" required name="pass" ngModel>
+              </ion-input>
+            </ion-item>
+            <ion-button type="submit" expand="block">login</ion-button>
+            <div text-center>
+              <p>Belum aktivasi? <a (click)="getData(activate())">aktivasi akun</a> terlebih dahulu.</p>
+              <p>atau kembali ke <a (click)="getData(backto())">halaman depan</a></p>
+            </div>
+          </form>
+        </div>
+
+        <div *ngIf="define3">
+          <img src="assets/icon/icon.png" height="200 px" width="150 px">
+          <ion-item margin-top>
+            <ion-icon name="person" slot="start"></ion-icon>
+            <ion-input type="text" clearInput="true" placeholder="Nomor Pendaftaran (ID)" required></ion-input>
           </ion-item>
           <ion-item>
-              <ion-icon name="lock"></ion-icon>
-                <ion-input type="password" clearInput="true" placeholder="Password" required=true></ion-input>
+            <ion-icon name="key" slot="start"></ion-icon>
+            <ion-input type="password" clearInput="true" placeholder="Kode Aktivasi" required></ion-input>
           </ion-item>
-          <ion-button expand="block" (click)="loginUser()">login</ion-button>
+          <ion-button expand="block" (click)="getData(register())">Aktivasi</ion-button>
           <div text-center>
-            <p>Belum aktivasi? <a (click)="activate()">aktivasi akun</a> terlebih dahulu.</p>
-            <p>atau kembali ke <a (click)="backto()">halaman depan</a></p>
+            <p>Sudah aktivasi? langsung ke halaman <a (click)="getData(login())">login</a></p>
+            <p>atau kembali ke <a (click)="getData(backto())">halaman depan</a></p>
           </div>
-  </div>
+        </div>
 
-  <div *ngIf="define3">
-    <ion-item>
-        <ion-icon name="person"></ion-icon>
-          <ion-input type="text" clearInput="true" placeholder="Nomor Pendaftaran (ID)" required="true"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-icon name="key"></ion-icon>
-          <ion-input type="password" clearInput="true" placeholder="Kode Aktivasi" required="true"></ion-input>
-    </ion-item>
-    <ion-button expand="block" (click)="loginUser()">Aktivasi</ion-button>
-    <div text-center>
-      <p>Sudah aktivasi? langsung ke halaman <a (click)="login()">login.</a></p>
-      <p>atau kembali ke <a (click)="backto()">halaman depan</a></p>
-    </div>
-  </div>
+        <div *ngIf="define4">
+          <ion-card color="light">
+            <div text-center>
+              <p>Akun kamu berhasil diaktivasi!<br>Selanjutnya, silahkan buat Username dan Password untuk akunmu</p>
+              <p>Username dan Password ini yang nanti dipakai untuk login ya~</p>
+            </div>
+          </ion-card>
 
-    </ion-col>
-  </ion-row>
-</ion-grid>
+          <ion-item>
+            <ion-input pattern="^\w.*$" type="text" placeholder="Username" required name="name" ngModel #name="ngModel" minlength="7" maxlength="15"></ion-input>
+            <div style="color:red" *ngIf="name.errors && (name.dirty || name.touched)">
+              <p *ngIf="name.errors?.pattern; else space">jangan gunakan spasi!</p>
+              <ng-template #space><p>minimal 7 karakter!</p></ng-template>
+            </div>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" placeholder="Password" required name="pass"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" placeholder="Konfirmasi Password" required></ion-input>
+          </ion-item>
+          <ion-button expand="block" (click)="getData(loginUser())">Buat Akun</ion-button>
+          <div text-center>
+            <p>nanti aja deh. kembali ke <a (click)="getData(backto())">halaman depan</a> dulu.</p>
+          </div>
+        </div>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

@@ -43,6 +43,13 @@ export class AuthenticationService {
     });
   }
 
+  loging(dum) {
+    this.storage.set('USER_INFO', dum).then(() => {
+      this.router.navigate(['tabs']);
+      this.authState.next(true);
+    });
+  }
+
   logout() {
     this.storage.remove('USER_INFO').then(() => {
       this.router.navigate(['login']);
