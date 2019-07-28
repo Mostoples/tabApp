@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab3',
@@ -19,10 +20,22 @@ export class Tab3Page {
   constructor(
     private emailComposer: EmailComposer,
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private loadingController: LoadingController
     ) {}
 
+  async getData(fun) {
+    const loading = await this.loadingController.create({
+      message: 'Loading'
+    });
+    await loading.present();
+    // tslint:disable-next-line: no-unused-expression
+    fun;
+    loading.dismiss();
+  }
+
   logoutUser() {
+    this.getData(this.authService);
     this.authService.logout();
   }
 

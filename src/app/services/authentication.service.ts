@@ -52,7 +52,7 @@ export class AuthenticationService {
 
   logout() {
     this.storage.remove('USER_INFO').then(() => {
-      this.router.navigate(['login']);
+      this.router.navigate(['']);
       this.authState.next(false);
     });
   }
