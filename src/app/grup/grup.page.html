@@ -1,44 +1,50 @@
 <ion-header>
   <ion-toolbar>
     <ion-back-button slot="start" defaultHref="/"></ion-back-button>
-    <ion-title  class="philosopher">
+    <ion-title class="philosopher">
       Grouping
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-card>
-        <ion-card-header color="light">
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-card>
+          <ion-card-header color="light">
             <ion-label>Kakak Pembimbing</ion-label>
           </ion-card-header>
-      <ion-item *ngFor="let kambing of data2">
-          <ion-thumbnail slot="end" margin-left margin-bottom>
+          <ion-item *ngFor="let kambing of data2">
+            <ion-thumbnail slot="end" margin-left margin-bottom>
               <ion-avatar>
                 <img src="{{kambing.fotokambing}}">
               </ion-avatar>
             </ion-thumbnail>
             <ion-label>
-                <ion-card-subtitle>{{kambing.namakambing}}</ion-card-subtitle>
-                <ion-card-subtitle>{{kambing.prodi}} ({{kambing.fakultas}})</ion-card-subtitle>
+              <ion-card-subtitle>{{kambing.namakambing}}</ion-card-subtitle>
+              <ion-card-subtitle>{{kambing.prodi}} ({{kambing.fakultas}})</ion-card-subtitle>
             </ion-label>
-      </ion-item>
-    </ion-card>
+          </ion-item>
+        </ion-card>
 
-    <ion-card>
-        <ion-card-header color="light">
+        <ion-card>
+          <ion-card-header color="light">
             <ion-label>Peserta PKKMB</ion-label>
           </ion-card-header>
-      <ion-item *ngFor="let maba of data1">
-          <ion-thumbnail slot="start" margin-left margin-bottom>
+          <ion-item *ngFor="let maba of data1">
+            <ion-thumbnail slot="start" margin-left margin-bottom>
               <ion-avatar>
                 <img src="{{maba.foto}}">
               </ion-avatar>
             </ion-thumbnail>
             <ion-label>
-                <ion-card-subtitle>{{maba.nama}}</ion-card-subtitle>
-                <ion-card-subtitle>{{maba.kelompok}}</ion-card-subtitle>
+              <ion-card-subtitle>{{maba.nama}}</ion-card-subtitle>
+              <ion-card-subtitle>{{maba.kelompok}}</ion-card-subtitle>
             </ion-label>
-      </ion-item>
-    </ion-card>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

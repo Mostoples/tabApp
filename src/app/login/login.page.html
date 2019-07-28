@@ -1,12 +1,12 @@
 <ion-content>
   <ion-grid style="height: 100%" text-center>
     <ion-row justify-content-center align-items-center style="height: 100%">
-      <ion-col>
+      <ion-col size-md="6">
 
-        <div *ngIf="define1" text-end>
+        <div *ngIf="define1">
           <ion-button expand="full" shape="round" (click)="getData(login())">login</ion-button>
           <ion-button expand="full" shape="round" (click)="getData(activate())">Aktivasi Akun</ion-button>
-          <ion-button shape="round" color="danger" (click)="getData(loginUser())">Skip~</ion-button>
+          <ion-button  shape="round" color="danger" (click)="getData(loginUser())">Skip~</ion-button>
         </div>
 
         <div *ngIf="define2">
