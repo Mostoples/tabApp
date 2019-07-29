@@ -2,6 +2,11 @@ import { Component, ViewChild } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
+
+
+
+
 
 @Component({
   selector: 'app-tab2',
@@ -14,7 +19,8 @@ export class Tab2Page {
   btn = 'btn';
   lnk = 'lnk';
 
-  sliderConf:{};  
+  
+
 
   menu = [
     [
@@ -45,23 +51,28 @@ export class Tab2Page {
   ];
 
   constructor(
+    private authService: AuthenticationService,
     private authenticationService: AuthenticationService,
     private router: Router,
+    private loadingController: LoadingController
     ) {
         
 
     }
 
+    sliderConf = {
+      spaceBetween: -22,
+      centeredSlides: true,
+      slidesPreview: 1.6,
+      loop: false,
+      autoplay:false,
+    };
+
+    
 ionViewWillEnter() {
   this.scrollToBottomOnInit();
-    this.sliderConf = {
-    spaceBetween: -22,
-    centeredSlides: true,
-    slidesPreview: 1.6,
-    loop: true,
-    autoplay:true
-    
-  };
+  this.sliderConf.loop = true;
+  this.sliderConf.autoplay = true;
   
   
 }
@@ -71,8 +82,20 @@ scrollToBottomOnInit() {
 }
 
   next(para) {
+    this.getData(this.authService);
     this.authenticationService.isAuthenticated();
     this.router.navigate([para]);
   }
 
+  async getData(fun) {
+    const loading = await this.loadingController.create({
+      message: 'Loading'
+    });
+    await loading.present();
+    // tslint:disable-next-line: no-unused-expression
+    fun;
+    loading.dismiss();
+  }
+
 }
+

@@ -40,6 +40,7 @@ export class Tab3Page {
   }
 
   next(para) {
+    this.getData(this.authService);
     this.authService.isAuthenticated();
     this.router.navigate([para]);
   }

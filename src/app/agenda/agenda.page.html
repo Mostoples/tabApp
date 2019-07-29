@@ -8,10 +8,33 @@
 </ion-header>
 
 <ion-content>
+        
   <ion-card>
     <ion-card-content class="ion-text-center">
         <img src="assets/img/person.png"> 
         
     </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content class="ion-text-center">
+      <p class="roboto">Agenda Hari Pertama</p>
+      <ion-list>
+          <ion-item *ngFor="let entry of form">
+            <ion-label>{{entry.val}}</ion-label>
+            <ion-checkbox slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+    </ion-card-content>
+
+    <ion-card-content class="ion-text-center">
+        <p class="roboto">Agenda Hari Pertama</p>
+        <ion-list>
+            <ion-item *ngFor="let entry of forms">
+              <ion-label>{{entry.val}}</ion-label>
+              <ion-checkbox slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
+            </ion-item>
+          </ion-list>
+      </ion-card-content>
   </ion-card>
 </ion-content>

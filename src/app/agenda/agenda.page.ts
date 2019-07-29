@@ -12,4 +12,17 @@ export class AgendaPage implements OnInit {
   ngOnInit() {
   }
 
+  public form = [
+    { val: 'Makan siang', isChecked: true },
+    { val: 'Tidur', isChecked: false },
+    { val: 'Mandi', isChecked: false },
+   
+  ];
+
+  public forms = [
+    { val: 'Makan Malam', isChecked: true },
+    { val: 'Belajar', isChecked: false },
+    { val: 'Rebahan', isChecked: false },
+   
+  ];
 }
