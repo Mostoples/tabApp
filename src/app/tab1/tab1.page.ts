@@ -21,7 +21,10 @@ export class Tab1Page {
         event.target.complete();
       }, 2000);
     }
+  refresher = document.getElementById('refresher');
+  agenda = ['Mie','Nasi','Es'];
 
-    
+  
+   
 
 }
