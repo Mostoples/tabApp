@@ -18,13 +18,6 @@ export class Tab2Page {
 
   user = '';
 
-<<<<<<< HEAD
-  sliderConf: {};
-=======
-  
-
->>>>>>> f4c9ec310c11f16b0268e026cce22b79c58e4a3a
-
   menu = [
     [
       { name: '', title2: 'Tentang PKKMB', route: 'tabs/tentang', type: 'btn', custom: 'assets/icon/custom/pkkmb-1.svg'}
@@ -67,32 +60,17 @@ export class Tab2Page {
       centeredSlides: true,
       slidesPreview: 1.6,
       loop: false,
-      autoplay:false,
+      autoplay: false,
     };
 
-    
+
 ionViewWillEnter() {
   if (this.authenticationService.usernm) {
     this.user = this.authenticationService.usernm;
+    this.scrollToBottomOnInit();
+    this.sliderConf.loop = true;
+    this.sliderConf.autoplay = true;
   }
-  this.scrollToBottomOnInit();
-<<<<<<< HEAD
-  this.sliderConf = {
-    spaceBetween: -22,
-    centeredSlides: true,
-    slidesPreview: 1.6,
-    loop: true,
-    autoplay: true
-
-  };
-
-
-=======
-  this.sliderConf.loop = true;
-  this.sliderConf.autoplay = true;
-  
-  
->>>>>>> f4c9ec310c11f16b0268e026cce22b79c58e4a3a
 }
 
 scrollToBottomOnInit() {
