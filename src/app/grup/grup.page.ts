@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
-import { RemoteServiceService } from '../remote-service.service';
+import { LoadingController, AlertController } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
+import { Storage } from '@ionic/storage';
+
+const goToHttp = 'https://purwabarata2019.uns.ac.id/panerusApp/';
+let tipe = '';
+let grup = '';
+
 
 @Component({
   selector: 'app-grup',
@@ -8,31 +14,52 @@ import { RemoteServiceService } from '../remote-service.service';
   styleUrls: ['grup.page.scss'],
 })
 export class GrupPage {
-  data1: any;
-  data2: any;
-  data3: any;
-  data4: any;
-  constructor(public api: RemoteServiceService, public loadingController: LoadingController) {
+  dataa: any = [];
+
+  constructor(
+    public loadingController: LoadingController,
+    private http: HttpClient,
+    private alertController: AlertController,
+    private storage: Storage,
+    ) {
   }
+
   async getData() {
     const loading = await this.loadingController.create({
       message: 'Loading'
     });
     await loading.present();
-    this.api.getData()
-      .subscribe(res => {
-        console.log(res);
-        this.data1 = res[0];
-        this.data2 = res[1];
-        this.data3 = res[2];
-        this.data4 = res[3];
+    const postData = JSON.stringify({idGroup: grup});
+
+    this.http.post(goToHttp + tipe, postData).subscribe(data => {
+      this.dataa = data;
+      if (!this.dataa.error) {
         loading.dismiss();
-      }, err => {
-        console.log(err);
+      } else {
         loading.dismiss();
-      });
+        this.falseData(this.dataa.error.text);
+      }
+    }, err => {
+      loading.dismiss();
+      this.falseData(err);
+    });
   }
+
+  async falseData(msg) {
+    const alert = await this.alertController.create({
+      message: msg,
+      buttons: ['Ok'],
+    });
+    await alert.present();
+    return;
+  }
+
+  // tslint:disable-next-line: use-life-cycle-interface
   ngOnInit() {
+    tipe = 'getGroup.php';
+    this.storage.get('USER_INFO').then(res => {
+      grup = res.ID_GROUP;
+    });
     this.getData();
   }
 }

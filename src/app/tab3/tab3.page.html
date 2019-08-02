@@ -18,15 +18,15 @@
       <ion-col size-md="6" offset-md="3" no-padding>
   <ion-item button="true" color="primary">
     <ion-label class="roboto">
-      <h1>Mak Wo Ouwo</h1>
-      <p>1234567890000 - Pendidikan PITIK</p>
+      <h1>{{ namae }}</h1>
+      <p>{{ ide }} - {{ prodie }} ({{ fakultase }})</p>
     </ion-label>
     <ion-icon md="md-arrow-round-forward" slot="end"></ion-icon>
   </ion-item>
-  <ion-item button="true"  (click)="next('/aduan')">
+  <ion-item button="true" (click)="next('tabs/tab3/aduan')">
     <ion-label class="roboto">
       <h3>Laporkan Aduan</h3>
-      <p>Misal barang hilang atau kasih feedback gitu</p>
+      <p>Misal barang hilang atau kasih feedback gitu~</p>
     </ion-label>
     <ion-icon md="md-mail" slot="start"></ion-icon>
   </ion-item>

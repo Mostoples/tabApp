@@ -1,12 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
-import { IonContent } from '@ionic/angular';
-import { LoadingController } from '@ionic/angular';
-
-
-
-
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-tab2',
@@ -17,15 +12,15 @@ export class Tab2Page {
   @ViewChild('content') private content: any;
 
   user = '';
+  sliderConf = {};
 
   menu = [
     [
-      { name: '', title2: 'Tentang PKKMB', route: 'tabs/tentang', type: 'btn', custom: 'assets/icon/custom/pkkmb-1.svg'}
+      { name: '', title2: 'Tentang PKKMB', route: 'tabs/tentang', type: 'btn', custom: 'assets/icon/custom/pkkmb-1.svg' }
     ],
     [
       { name: 'book', title: 'Panduan', route: 'tabs/panduan', type: 'btn' },
-
-      { name: 'globe', title: 'Website', route: 'https://pkkmb.uns.ac.id/', type: 'lnk' }
+      { name: 'globe', title: 'Website', route: 'tabs/web', type: 'btn' }
     ],
     [
       { name: 'clipboard', title2: 'Presensi', route: 'tabs/presensi', type: 'btn' }
@@ -47,50 +42,29 @@ export class Tab2Page {
   ];
 
   constructor(
-    private authService: AuthenticationService,
     private authenticationService: AuthenticationService,
     private router: Router,
-    private loadingController: LoadingController
-    ) {
-      this.user = 'Kamu~';
-    }
-
-    sliderConf = {
+    private storage: Storage,
+  ) {
+    this.sliderConf = {
       spaceBetween: -22,
       centeredSlides: true,
       slidesPreview: 1.6,
-      loop: false,
-      autoplay: false,
+      loop: true,
+      autoplay: true
     };
-
-
-ionViewWillEnter() {
-  if (this.authenticationService.usernm) {
-    this.user = this.authenticationService.usernm;
-    this.scrollToBottomOnInit();
-    this.sliderConf.loop = true;
-    this.sliderConf.autoplay = true;
+    this.storage.get('USER_INFO').then(res => {
+      this.user = res.UNAME;
+    });
   }
-}
 
-scrollToBottomOnInit() {
-  this.content.scrollToTop(300);
-}
+  ionViewWillEnter() {
+    this.content.scrollToTop(300);
+  }
 
   next(para) {
-    this.getData(this.authService);
     this.authenticationService.isAuthenticated();
     this.router.navigate([para]);
-  }
-
-  async getData(fun) {
-    const loading = await this.loadingController.create({
-      message: 'Loading'
-    });
-    await loading.present();
-    // tslint:disable-next-line: no-unused-expression
-    fun;
-    loading.dismiss();
   }
 
 }

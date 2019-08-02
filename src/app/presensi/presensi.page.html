@@ -8,31 +8,17 @@
 </ion-header>
 
 <ion-content padding class="roboto">
-  <ion-grid>
-    <ion-row>
-      <ion-col size-md="6" offset-md="3">
-        <ion-item *ngIf="ngOnInit" disabled="{{ display }}">
-          <ion-input type="text" placeholder="Type Something" [(ngModel)]="qrData"></ion-input>
-        </ion-item>
-        <ion-button expand="block" (click)="createCode()">
-          <ion-icon name="barcode"></ion-icon>&nbsp;Create Code
-        </ion-button>
-        <ion-button expand="block" (click)="scanCode()">
-          <ion-icon name="qr-scanner"></ion-icon>&nbsp;Scan Code
-        </ion-button>
+  <ion-grid style="height: 100%" text-center>
+    <ion-row justify-content-center align-items-center style="height: 100%">
+      <ion-col size-md="6">
 
-        <ion-card *ngIf="createdCode">
-          <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+        <ion-card color="light">
           <ion-card-content>
-            <p>Value: {{ createdCode }}</p>
+            <p><b>Hasil scanning :</b></p>
+            <p>{{ scanResult }}</p>
           </ion-card-content>
         </ion-card>
 
-        <ion-card *ngIf="scannedCode">
-          <ion-card-content>
-            <p>Result from scan: {{ scannedCode }}</p>
-          </ion-card-content>
-        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>

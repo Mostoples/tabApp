@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
-import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-tab3',
@@ -11,18 +11,25 @@ import { LoadingController } from '@ionic/angular';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-  // tslint:disable-next-line: no-inferrable-types
-  isiEmail: string = '(Silakan ganti dengan aduan anda yang berkaitan acara PKKMB UNS 2019...)';
-  // tslint:disable-next-line: no-inferrable-types
-  subject: string = '[ISI JENIS ADUAN]';
 
+  namae = '';
+  ide = '';
+  prodie = '';
+  fakultase = '';
 
   constructor(
-    private emailComposer: EmailComposer,
     private authService: AuthenticationService,
     private router: Router,
-    private loadingController: LoadingController
-    ) {}
+    private loadingController: LoadingController,
+    private storage: Storage,
+    ) {
+      this.storage.get('USER_INFO').then(res => {
+        this.namae = res.NAMA_PESERTA;
+        this.ide = res.NIM_PESERTA;
+        this.prodie = res.PRODI_PESERTA;
+        this.fakultase = res.FAKULTAS_PESERTA;
+      });
+    }
 
   async getData(fun) {
     const loading = await this.loadingController.create({
@@ -40,7 +47,6 @@ export class Tab3Page {
   }
 
   next(para) {
-    this.getData(this.authService);
     this.authService.isAuthenticated();
     this.router.navigate([para]);
   }

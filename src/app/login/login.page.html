@@ -7,7 +7,6 @@
             <img src="assets/icon/logo.png" height="200 px" width="200 px">
           <ion-button expand="full" shape="round" (click)="getData(login())">login</ion-button>
           <ion-button expand="full" shape="round" (click)="getData(activate())">Aktivasi Akun</ion-button>
-          <ion-button  shape="round" color="danger" (click)="getData(loginUser())">Skip~</ion-button>
         </div>
 
         <div *ngIf="define2">
@@ -73,7 +72,10 @@
               </div>
             </ion-item>
             <ion-item>
-              <ion-input type="password" placeholder="Password" required name="passss" ngModel></ion-input>
+              <ion-input type="password" placeholder="Password" required name="passss" ngModel #name="ngModel" minlength="7"></ion-input>
+              <div style="color:red" *ngIf="name.errors && (name.dirty || name.touched)">
+                <p *ngIf="name.errors?.minlength;">Minimal 7 karakter!</p>
+              </div>
             </ion-item>
             <ion-item>
               <ion-input type="password" placeholder="Konfirmasi Password" required name="cpassss" ngModel></ion-input>
@@ -81,7 +83,7 @@
             <ion-button expand="block" type="submit">Buat Akun</ion-button>
             <div text-center>
               <p>nanti aja deh, kembali ke <a (click)="getData(backto())">halaman depan</a> dulu.</p>
-              <p>nb: tenang, status AKTIF akunmu akan DIBATALKAN</p>
+              <p>nb: tenang, akunmu bisa diaktivasi lain kali</p>
             </div>
           </form>
         </div>

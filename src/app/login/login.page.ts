@@ -1,12 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-//
+import { Component, OnInit } from '@angular/core';
+
 import { AuthenticationService } from '../services/authentication.service';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { LoadingController, AlertController } from '@ionic/angular';
-import { Button } from 'protractor';
-import { Reg, ForLog } from './login.model';
 
+const goToHttp = 'https://purwabarata2019.uns.ac.id/panerusApp/';
+
+let tipe = '';
 
 @Component({
   selector: 'app-login',
@@ -24,47 +25,24 @@ export class LoginPage implements OnInit {
   cpass = '';
   name = '';
   word = '';
-
-  forLog: ForLog[] = [
-    {
-      usern: '007',
-      paswd: 'test',
-    }
-  ];
-
-  reg: Reg[] = [
-    {
-      user_name: 'tes',
-      user_pass: 'tes',
-      stat: false
-    },
-    {
-      user_name: 'tos',
-      user_pass: 'tos',
-      stat: true
-    }
-  ];
+  data: any = {};
 
   constructor(
     private authService: AuthenticationService,
     private loadingController: LoadingController,
-    private alertController: AlertController
-  ) {/* belum ada http nya */}
+    private alertController: AlertController,
+    private http: HttpClient,
+  ) {}
 
   ngOnInit() {}
 
-  ionViewDidLeave() {
+  // tslint:disable-next-line: use-life-cycle-interface
+  ngOnDestroy() {
+    this.data = {};
     this.define1 = 1;
     this.define2 = 0;
     this.define3 = 0;
     this.define4 = 0;
-  }
-
-  //
-  loginUser() {
-    this.user = 'Kkfajslfksf';
-    this.authService.setUsername(this.user);
-    this.authService.login();
   }
 
   async getData(fun) {
@@ -111,6 +89,7 @@ export class LoginPage implements OnInit {
     this.user = form.value.nameee;
     this.pass = form.value.passss;
     this.cpass = form.value.cpassss;
+    tipe = 'createUser.php';
     this.creating();
   }
 
@@ -123,70 +102,60 @@ export class LoginPage implements OnInit {
       const msg = 'Input kedua Password tidak sama!';
       this.falseData(msg);
       return;
-    } else if (this.user.length < 7) {
-      const msg = 'Username minimal terdiri dari 7 karakter';
+    } else if (this.user.length < 7 || this.pass.length < 7) {
+      const msg = 'Username dan Password minimal terdiri dari 7 karakter';
       this.falseData(msg);
       return;
     }
-    try {
-      const data = {usern: this.user, paswd: this.pass};
-      this.forLog.push(data);
-      this.changeStat();
-      const msg = 'Akunmu telah berhasil dibuat. Silahkan login menggunakan Username dan Password yang telah dibuat.';
-      this.falseData(msg);
-      this.getData(this.login());
-    } catch (err) {
-      const msg = 'Terjadi kesalahan';
-      this.falseData(msg);
-      return;
-    }
-  }
-
-  changeStat() {
-    this.reg.map(chng => {
-      if (chng.user_name === this.name) {
-        chng.stat = true;
+    const postData = JSON.stringify({username: this.user, password: this.pass, code: this.name});
+    this.http.post(goToHttp + tipe, postData).subscribe(data => {
+      this.data = data;
+      if (!this.data.error) {
+        this.falseData(this.data.success);
+        this.getData(this.define2);
+        this.define1 = 0;
+        this.define2 = 1;
+        this.define3 = 0;
+        this.define4 = 0;
+      } else {
+        this.falseData(this.data.error.text);
       }
     });
-    console.log(this.reg);
   }
 
   onRegist(form: NgForm) {
     this.name = form.value.namee;
     this.word = form.value.passs;
+    tipe = 'regis.php';
     this.registingIn();
   }
 
   registingIn() {
     if (this.name.length === 0 || this.word.length === 0) {
-      const msg = 'Masukkan ID dan Password!';
+      const msg = 'Masukkan Nomor Peserta dan Kode Aktivasi';
       this.falseData(msg);
       return;
     }
-    const dummy = this.reg.find(element => element.user_name === this.name);
-    try {
-      if (this.name === dummy.user_name && this.word === dummy.user_pass && dummy.stat === false) {
+    const postData = JSON.stringify({code: this.name, actCode: this.word});
+
+    this.http.post(goToHttp + tipe, postData).subscribe(data => {
+      this.data = data;
+      if (!this.data.error) {
         this.getData(this.define4);
         this.define1 = 0;
         this.define2 = 0;
         this.define3 = 0;
         this.define4 = 1;
-      } else if (this.name === dummy.user_name && this.word === dummy.user_pass && dummy.stat === true) {
-        const msg = 'Anda sudah melakukan aktivasi. Silahkan lakukan Login.';
-        this.falseData(msg);
-      } else if (this.name !== dummy.user_name || this.word !== dummy.user_pass) {
-        const msg = 'ID dan atau Kode Aktivasi tidak tepat!';
-        this.falseData(msg);
+      } else {
+        this.falseData(this.data.error.text);
       }
-    } catch (err) {
-      const msg = 'Input ID ngawur!';
-      this.falseData(msg);
-    }
+    });
   }
 
   onLogin(form: NgForm) {
     this.user = form.value.name;
     this.pass = form.value.pass;
+    tipe = 'login.php';
     this.logingIn();
   }
 
@@ -196,20 +165,16 @@ export class LoginPage implements OnInit {
       this.falseData(msg);
       return;
     }
-    const dummy = this.forLog.find(element => element.usern === this.user);
-    try {
-      if (this.user === dummy.usern && this.pass === dummy.paswd) {
-        this.getData(this.authService.loging);
-        this.authService.loging(dummy);
-      } else {
-        const msg = 'Username dan atau Password tidak tepat!';
-        this.falseData(msg);
-      }
-    } catch (error) {
-      const msg = 'Username tidak tersedia';
-      this.falseData(msg);
-    }
+    const postData = JSON.stringify({username: this.user, password: this.pass, user: 'peserta'});
 
+    this.http.post(goToHttp + tipe, postData).subscribe(data => {
+      this.data = data;
+      if (!this.data.error) {
+        this.authService.login(this.data);
+      } else {
+        this.falseData(this.data.error.text);
+      }
+    });
   }
 
 }

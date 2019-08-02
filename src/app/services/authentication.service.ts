@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-
-//
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { ToastController, Platform } from '@ionic/angular';
@@ -13,8 +11,6 @@ export class AuthenticationService {
 
   authState = new BehaviorSubject(false);
 
-  usernm = '';
-
   constructor(
     private router: Router,
     private storage: Storage,
@@ -26,31 +22,18 @@ export class AuthenticationService {
     });
   }
 
-  setUsername(para) {
-    this.usernm = para;
-  }
-
   ifLoggedIn() {
     this.storage.get('USER_INFO').then((response) => {
-      if (response) {
+      if (response === null) {
+        this.router.navigate(['login']);
+      } else {
         this.authState.next(true);
       }
     });
   }
 
-  login() {
-    const dummyResponse = {
-      user_id: '007',
-      user_name: 'test',
-    };
-    this.storage.set('USER_INFO', dummyResponse).then(() => {
-      this.router.navigate(['tabs']);
-      this.authState.next(true);
-    });
-  }
-
-  loging(dum) {
-    this.storage.set('USER_INFO', dum).then(() => {
+  login(userinfo) {
+    this.storage.set('USER_INFO', userinfo).then(() => {
       this.router.navigate(['tabs']);
       this.authState.next(true);
     });
