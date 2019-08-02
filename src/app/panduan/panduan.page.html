@@ -1,3 +1,4 @@
+
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot='start'><ion-back-button defaultHref="/"></ion-back-button></ion-buttons>
@@ -10,45 +11,215 @@
         </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
+  
 </ion-header>
 
+
+  
+
+
 <ion-content>
-  <div [ngSwitch]="choice">
+  
+
+    
+      
+      <ion-menu  side="start" menuId="first" contentId="content1">
+          <ion-toolbar>
+            <ion-title>Daftar Isi</ion-title>
+          </ion-toolbar>
+          <ion-content>
+            
+            <ion-list>
+              <ion-menu-toggle>
+              <ion-item  (click)='ScrollToPoint(6,1)' color='light' lines='none'>
+                  <ion-icon slot='end' name='menu'></ion-icon><ion-label>Etika 2</ion-label>
+              </ion-item>
+              </ion-menu-toggle>
+              <ion-menu-toggle>
+              <ion-item  (click)='ScrollToPoint(10,1)' color='light' lines='none'>
+                  <ion-icon slot='end' name='menu'></ion-icon><ion-label>Etika 2</ion-label>
+              </ion-item>
+              </ion-menu-toggle>
+              <ion-menu-toggle>
+              <ion-item  (click)='ScrollToPoint(12,1)' color='light' lines='none'>
+                  <ion-icon slot='end' name='menu'></ion-icon><ion-label>Etika 2</ion-label>
+              </ion-item>
+              </ion-menu-toggle>
+              <ion-menu-toggle>
+              <ion-item  (click)='ScrollToPoint(14,1)' color='light' lines='none'>
+                  <ion-icon slot='end' name='menu'></ion-icon><ion-label>Etika 2</ion-label>
+              </ion-item>
+              </ion-menu-toggle>
+              <ion-menu-toggle>
+              <ion-item  (click)='ScrollToPoint(20,1)' color='light' lines='none'>
+                  <ion-icon slot='end' name='menu'></ion-icon><ion-label>Etika 2</ion-label>
+              </ion-item>
+              </ion-menu-toggle>
+            </ion-list>
+          </ion-content>
+      </ion-menu>
+
+      <ion-router-outlet id="content1"></ion-router-outlet>
+      
+      
       <ion-slides pager='true' direction='vertical' #slides (ionSlideDidChange)="slideChanged()" scrollbar="true">
+         
           <ion-slide>
-              <ion-content>
-                <ion-card>
-                  <ion-card-header>
-                      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-                      <ion-card-title>Card Title</ion-card-title>
-                    </ion-card-header>
-                  
-                    <ion-card-content>
-                        <ion-list>
-                            <ion-item>
-                                <img src="assets/img/1.png" tappable >
-                            </ion-item>
-                        </ion-list>
-                    </ion-card-content>
+              <ion-content  #content [scrollEvents]='true'> 
+                <ion-fab vertical="top" horizontal="end" slot="fixed">
+                  <ion-fab-button >
+                    <ion-menu-button><ion-icon name='menu' (click)='firstUse()'></ion-icon></ion-menu-button>
+                  </ion-fab-button>
+                </ion-fab>
+                <ion-card style=' margin-left : 0vw; margin-top : 0vw; margin-right : 0vw; margin-bottom : 0vw; margin-inline-start: 0vw; margin-inline-end: 0vw; padding-left : 0vw; padding-top : 0vw; padding-right : 0vw; padding-bottom : 0vw;'>
+                  <ion-card-content style='margin-left : 0vw; margin-top : 0vw; margin-right : 0vw; margin-bottom : 0vw; margin-inline-start: 0vw; margin-inline-end: 0vw; padding-left : 0vw; padding-top : 0vw; padding-right : 0vw; padding-bottom : 0vw;'>
+                    <ion-list style=' margin-left : 0vw; margin-top : 0vw; margin-right : 0vw; margin-bottom : 0vw; margin-inline-start: 0vw; margin-inline-end: 0vw; padding-left : 0vw; padding-top : 0vw; padding-right : 0vw; padding-bottom : 0vw;'>
+                      <ion-item>
+                        <img #maba1 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item>
+                        <img #maba2 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item >
+                        <img #maba3 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item>
+                        <img #maba4 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item>
+                        <img #maba5 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item>
+                        <img #maba6 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item>
+                        <img #maba7 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item>
+                        <img #maba8 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item >
+                        <img #maba9 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item>
+                        <img #maba10 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item>
+                        <img #maba11 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item>
+                        <img #maba12 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item>
+                        <img #maba13 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item>
+                        <img #maba14 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item >
+                        <img #maba15 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item>
+                        <img #maba16 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item>
+                        <img #maba17 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item>
+                        <img #maba18 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item>
+                        <img #maba19 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                      <ion-item>
+                        <img #maba20 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                      </ion-item>
+                    </ion-list>
+                  </ion-card-content>
                 </ion-card>
               </ion-content>
           </ion-slide>
           <ion-slide>
-            second
+              <ion-content> 
+                  <ion-fab vertical="top" horizontal="end" slot="fixed">
+                    <ion-fab-button>
+                      <ion-menu-button><ion-icon name='menu'></ion-icon></ion-menu-button>
+                    </ion-fab-button>
+                  </ion-fab>
+                  <ion-card no-padding>
+                    <ion-card-header>
+                        <ion-card-title>Card Title</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                      <ion-list>
+                            <ion-item>
+                              <img #kambing1 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item>
+                              <img #kambing2 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item >
+                              <img #kambing3 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item>
+                              <img #kambing4 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item>
+                              <img #kambing5 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item>
+                              <img #kambing6 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item>
+                              <img #kambing7 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item>
+                              <img #kambing8 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item >
+                              <img #kambing9 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item>
+                              <img #kambing10 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item>
+                              <img #kambing11 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item>
+                              <img #kambing12 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item>
+                              <img #kambing13 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item>
+                              <img #kambing14 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item >
+                              <img #kambing15 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item>
+                              <img #kambing16 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item>
+                              <img #kambing17 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item>
+                              <img #kambing18 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item>
+                              <img #kambing19 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                            <ion-item>
+                              <img #kambing20 style='height : 100%; width: 100vw' src="assets/img/1.png" tappable >
+                            </ion-item>
+                      </ion-list>
+                    </ion-card-content>
+                  </ion-card>
+                </ion-content>
           </ion-slide>
+        
       </ion-slides>
-
-      <ion-segment (ionChange)="segmentChanged()" [(ngModel)]="segment" color="warning" scrollable>
-          <ion-segment-button value="0">
-            <ion-icon src="assets/icon/custom/md-custom-m.svg" ></ion-icon>
-            <ion-label>Aturan</ion-label>
-          </ion-segment-button>
-          <ion-segment-button value="1">
-            <ion-icon name="camera"></ion-icon>
-            <ion-label>Etika</ion-label>
-          </ion-segment-button>
-      </ion-segment>
-  </div>
+      
   
     
 </ion-content>
