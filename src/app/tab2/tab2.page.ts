@@ -2,6 +2,11 @@ import { Component, ViewChild } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
 import { IonContent } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
+
+
+
+
 
 @Component({
   selector: 'app-tab2',
@@ -13,7 +18,12 @@ export class Tab2Page {
 
   user = '';
 
+<<<<<<< HEAD
   sliderConf: {};
+=======
+  
+
+>>>>>>> f4c9ec310c11f16b0268e026cce22b79c58e4a3a
 
   menu = [
     [
@@ -44,17 +54,29 @@ export class Tab2Page {
   ];
 
   constructor(
+    private authService: AuthenticationService,
     private authenticationService: AuthenticationService,
     private router: Router,
+    private loadingController: LoadingController
     ) {
       this.user = 'Kamu~';
     }
 
+    sliderConf = {
+      spaceBetween: -22,
+      centeredSlides: true,
+      slidesPreview: 1.6,
+      loop: false,
+      autoplay:false,
+    };
+
+    
 ionViewWillEnter() {
   if (this.authenticationService.usernm) {
     this.user = this.authenticationService.usernm;
   }
   this.scrollToBottomOnInit();
+<<<<<<< HEAD
   this.sliderConf = {
     spaceBetween: -22,
     centeredSlides: true,
@@ -65,6 +87,12 @@ ionViewWillEnter() {
   };
 
 
+=======
+  this.sliderConf.loop = true;
+  this.sliderConf.autoplay = true;
+  
+  
+>>>>>>> f4c9ec310c11f16b0268e026cce22b79c58e4a3a
 }
 
 scrollToBottomOnInit() {
@@ -72,8 +100,20 @@ scrollToBottomOnInit() {
 }
 
   next(para) {
+    this.getData(this.authService);
     this.authenticationService.isAuthenticated();
     this.router.navigate([para]);
   }
 
+  async getData(fun) {
+    const loading = await this.loadingController.create({
+      message: 'Loading'
+    });
+    await loading.present();
+    // tslint:disable-next-line: no-unused-expression
+    fun;
+    loading.dismiss();
+  }
+
 }
+
