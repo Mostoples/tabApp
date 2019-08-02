@@ -11,10 +11,9 @@ import { IonContent } from '@ionic/angular';
 export class Tab2Page {
   @ViewChild('content') private content: any;
 
-  btn = 'btn';
-  lnk = 'lnk';
+  user = '';
 
-  sliderConf:{};  
+  sliderConf: {};
 
   menu = [
     [
@@ -48,22 +47,24 @@ export class Tab2Page {
     private authenticationService: AuthenticationService,
     private router: Router,
     ) {
-        
-
+      this.user = 'Kamu~';
     }
 
 ionViewWillEnter() {
+  if (this.authenticationService.usernm) {
+    this.user = this.authenticationService.usernm;
+  }
   this.scrollToBottomOnInit();
-    this.sliderConf = {
+  this.sliderConf = {
     spaceBetween: -22,
     centeredSlides: true,
     slidesPreview: 1.6,
     loop: true,
-    autoplay:true
-    
+    autoplay: true
+
   };
-  
-  
+
+
 }
 
 scrollToBottomOnInit() {

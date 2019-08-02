@@ -24,9 +24,9 @@
                   <img src="assets/icon/custom/profile.svg">
                 </ion-avatar>
               </ion-thumbnail>
-              <ion-label>
+              <ion-label *ngIf="user">
                 <ion-card-subtitle class="philosopher">Selamat datang,</ion-card-subtitle>
-                <ion-card-title class="philosopher">Kamu</ion-card-title>
+                <ion-card-title class="philosopher">{{ user }}</ion-card-title>
               </ion-label>
             </ion-item>
           </ion-card-header>
@@ -40,7 +40,7 @@
                     <ion-label>
                       <ion-icon name="{{ it.name }}" slot="start" src="{{ it.custom }}"></ion-icon>
                       <div>{{ it.title }}</div>
-                    </ion-label>&nbsp;{{ it.title2 }}
+                    </ion-label>&nbsp;&nbsp;{{ it.title2 }}
                   </ion-button>
 
                   <ion-button class="butt" *ngIf="it.type === 'lnk'" href="{{it.route}}">

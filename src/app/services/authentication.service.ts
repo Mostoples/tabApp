@@ -13,6 +13,8 @@ export class AuthenticationService {
 
   authState = new BehaviorSubject(false);
 
+  usernm = '';
+
   constructor(
     private router: Router,
     private storage: Storage,
@@ -22,6 +24,10 @@ export class AuthenticationService {
     this.platform.ready().then(() => {
       this.ifLoggedIn();
     });
+  }
+
+  setUsername(para) {
+    this.usernm = para;
   }
 
   ifLoggedIn() {

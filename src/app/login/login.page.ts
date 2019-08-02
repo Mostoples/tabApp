@@ -62,6 +62,8 @@ export class LoginPage implements OnInit {
 
   //
   loginUser() {
+    this.user = 'Kkfajslfksf';
+    this.authService.setUsername(this.user);
     this.authService.login();
   }
 
