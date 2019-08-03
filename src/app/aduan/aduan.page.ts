@@ -17,7 +17,7 @@ export class AduanPage implements OnInit {
 
   send(){
      let email = {
-       to: 'mostoplesam@gmail.com',
+       to: 'purwabrata@gmail.com',
        subject: this.subject,
        body: this.isiEmail,
        isHtml: true
