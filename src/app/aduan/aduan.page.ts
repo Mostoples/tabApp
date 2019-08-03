@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
+import { Device } from '@ionic-native/device/ngx';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-aduan',
@@ -13,7 +15,12 @@ export class AduanPage implements OnInit {
   subject: string = '';
   
 
-  constructor(private emailComposer: EmailComposer) {}
+  constructor(private emailComposer: EmailComposer, private device: Device, private platform : Platform) {
+    platform.ready().then(() => {
+      console.log(device.uuid);
+    });
+  }
+  
 
   send(){
      let email = {
@@ -28,7 +35,7 @@ export class AduanPage implements OnInit {
   }
 
   ngOnInit(){
-
+    
   }
 
 
