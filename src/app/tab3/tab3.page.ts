@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
@@ -10,13 +10,17 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
 })
-export class Tab3Page {
+export class Tab3Page implements OnInit {
 
+  define1 = 1;
+  define2 = 0;
   namae = '';
   ide = '';
   prodie = '';
   fakultase = '';
-
+  user = '';
+  
+  
   constructor(
     private authService: AuthenticationService,
     private router: Router,
@@ -25,10 +29,22 @@ export class Tab3Page {
     ) {
       this.storage.get('USER_INFO').then(res => {
         this.namae = res.NAMA_PESERTA;
+        this.user = res.UNAME;
         this.ide = res.NIM_PESERTA;
         this.prodie = res.PRODI_PESERTA;
         this.fakultase = res.FAKULTAS_PESERTA;
+        
       });
+    }
+
+    ngOnInit() {}
+
+    
+    ionViewDidLeave() {
+      
+      this.define1 = 1;
+      this.define2 = 0;
+      
     }
 
   async getData(fun) {
@@ -51,4 +67,14 @@ export class Tab3Page {
     this.router.navigate([para]);
   }
 
+  Profil() {
+    this.define1 = 0;
+    this.define2 = 1;
+    
+  }
+
+  tab3(){
+    this.define1 = 1;
+    this.define2 = 0;
+  }
 }

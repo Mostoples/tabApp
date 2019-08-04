@@ -59,6 +59,7 @@ export class GrupPage {
     tipe = 'getGroup.php';
     this.storage.get('USER_INFO').then(res => {
       grup = res.ID_GROUP;
+      console.log(grup);
     });
     this.getData();
   }
