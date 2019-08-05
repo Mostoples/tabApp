@@ -12,11 +12,18 @@ export class Tab2Page {
   @ViewChild('content') private content: any;
 
   user = '';
-  sliderConf = {};
+
+  sliderConf = {
+    spaceBetween: -22,
+    centeredSlides: true,
+    slidesPreview: 1.6,
+    loop: true,
+    autoplay: true
+  };
 
   menu = [
     [
-      { name: '', title2: 'Tentang PKKMB', route: 'tabs/tentang', type: 'btn', custom: 'assets/icon/custom/pkkmb-1.svg' }
+      { name: '', title2: 'Tentang PKKMB', route: 'tabs/tentang', type: 'btn', custom: 'assets/icon/custom/pkkmb-1.svg'}
     ],
     [
       { name: 'book', title: 'Panduan', route: 'tabs/panduan', type: 'btn' },
@@ -45,21 +52,21 @@ export class Tab2Page {
     private authenticationService: AuthenticationService,
     private router: Router,
     private storage: Storage,
-  ) {
-    this.sliderConf = {
-      spaceBetween: -22,
-      centeredSlides: true,
-      slidesPreview: 1.6,
-      loop: true,
-      autoplay: true
-    };
-    this.storage.get('USER_INFO').then(res => {
-      this.user = res.UNAME;
-    });
-  }
+    ) {
+      this.storage.get('USER_INFO').then(res => {
+        this.user = res.UNAME;
+      });
+    }
 
   ionViewWillEnter() {
     this.content.scrollToTop(300);
+    this.sliderConf.autoplay = true;
+    this.sliderConf.loop = true;
+  }
+
+  ionViewDidLeave() {
+    this.sliderConf.autoplay = true;
+    this.sliderConf.loop = true;
   }
 
   next(para) {
@@ -68,4 +75,3 @@ export class Tab2Page {
   }
 
 }
-
