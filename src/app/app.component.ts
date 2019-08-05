@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
+import { HeaderColor } from '@ionic-native/header-color/ngx';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private headerColor: HeaderColor
   ) {
     this.initializeApp();
   }
@@ -27,6 +29,7 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.statusBar.overlaysWebView(true);
+      this.headerColor.tint('#6F76B7');
       this.splashScreen.hide();
 
       this.authenticationService.authState.subscribe(state => {

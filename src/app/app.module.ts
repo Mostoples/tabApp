@@ -20,6 +20,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { AuthenticationService } from './services/authentication.service';
 import { IonicStorageModule } from '@ionic/storage';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { HeaderColor } from '@ionic-native/header-color/ngx';
 
 @NgModule({
 
@@ -36,6 +37,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
     AuthenticationService,
     IonicStorageModule,
     InAppBrowser,
+    HeaderColor,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],
