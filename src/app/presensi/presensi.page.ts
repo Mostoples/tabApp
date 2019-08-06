@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
@@ -11,9 +11,9 @@ const tipe = 'absensi2.php';
   templateUrl: './presensi.page.html',
   styleUrls: ['./presensi.page.scss'],
 })
-export class PresensiPage implements OnInit {
+export class PresensiPage {
   qrData = null;
-  scanResult = null;
+  scanResult = 'Tidak ada hasil. Scanning aja kagak.';
   data: any = {};
 
   scanCode() {
@@ -31,7 +31,7 @@ export class PresensiPage implements OnInit {
         });
       });
     }, err => {
-      this.scanResult = err.text;
+      this.scanResult = err;
     });
   }
   constructor(
@@ -40,8 +40,10 @@ export class PresensiPage implements OnInit {
     private storage: Storage
     ) { }
 
-  ngOnInit() {
-    this.scanCode();
+  // tslint:disable-next-line: use-life-cycle-interface
+  ngOnDestroy() {
+    this.scanResult = 'Tidak ada hasil. Scanning aja kagak';
+    this.data = null;
   }
 
 }
