@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
-import { PDM } from './panduan.model';
 import { IonContent } from '@ionic/angular';
 
 
