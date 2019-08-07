@@ -23,6 +23,8 @@ export class PanduanPage implements OnInit {
   
 
   @ViewChild('content') content;
+  @ViewChild('content2') content2;
+  
   @ViewChild('maba1') maba1;
   @ViewChild('maba2') maba2;
   @ViewChild('maba3') maba3;
@@ -185,7 +187,12 @@ export class PanduanPage implements OnInit {
 
   ScrollToPoint(choosein : number, chooseent : number){
     choosein = choosein - 1;
-    this.content.scrollToPoint(0,this.pdmPos[chooseent][choosein],100);
+	if(chooseent === 0){
+		this.content.scrollToPoint(0,this.pdmPos[chooseent][choosein],100);
+	}else {
+		this.content2.scrollToPoint(0,this.pdmPos[chooseent][choosein],100);
+	}
+    
   }
   
   pdmMaba: PDM[] = [
@@ -229,20 +236,32 @@ export class PanduanPage implements OnInit {
   
   
 
-  choice: string = 'pilihan';
+  choice: number = 1;
   menua: any;
 
   constructor(private menu: MenuController) { 
     this.menua = menu;
+	
     
+  }
+  
+  ngAfterViewInit() {
+    this.slider.lockSwipes(true);
   }
 
   async segmentChanged() {
+	this.slider.lockSwipes(false);
     await this.slider.slideTo(this.segment);
   }
 
   async slideChanged() {
     this.segment = await this.slider.getActiveIndex();
+	this.slider.lockSwipes(true);
+	if(this.segment == 0){
+		this.choice = 1;
+	}else{
+		this.choice = 2;
+	}
   }
 
   ngOnInit() {
@@ -250,9 +269,9 @@ export class PanduanPage implements OnInit {
 
   changeState(pilihan: number) {
     if (pilihan === 1) {
-      this.choice = 'maba';
+      this.choice = 1;
     } else if (pilihan === 2) {
-      this.choice = 'kambing';
+      this.choice = 2;
     }
 
   }
