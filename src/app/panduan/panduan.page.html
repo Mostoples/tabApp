@@ -2,7 +2,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot='start'><ion-back-button defaultHref="/"></ion-back-button></ion-buttons>
-    <ion-segment  (ionChange)="segmentChanged()" [(ngModel)]="segment" color="warning" scrollable>
+    <ion-segment  style='margin-left : 10vw;' (ionChange)="segmentChanged()" [(ngModel)]="segment" color="warning" scrollable>
         <ion-segment-button value="0">
           <ion-label>Ped. Maba</ion-label>
         </ion-segment-button>
@@ -221,7 +221,6 @@
 <!-- ION ITEM MABA 1 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
                       <ion-item style='--padding-start: 0;   --inner-padding-end: 0;'>
                         <div style='width : 100vw; height : 141vw; background : black; '>
-                          
                           <img #maba1 style='height : 100%; width: 100%; position : absolute; top : 0; left : 0;' src="assets/img/1MABA.jpg" tappable >
                         </div>
                       </ion-item>
