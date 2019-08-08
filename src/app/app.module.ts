@@ -26,7 +26,13 @@ import { HeaderColor } from '@ionic-native/header-color/ngx';
 
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, NgxQRCodeModule, HttpClientModule, IonicStorageModule.forRoot()
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot({scrollPadding: false, scrollAssist: true}),
+    AppRoutingModule,
+    NgxQRCodeModule,
+    HttpClientModule,
+    IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,
