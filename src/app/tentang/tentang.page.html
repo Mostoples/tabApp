@@ -7,11 +7,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content #content1 scroll-y='true'>
   <ion-grid style='padding-left : 0vw; padding-top : 0vw; padding-right : 0vw; padding-bottom : 0vw;'>
-    <ion-row>
-        <ion-fab>
-          <div style='z-index : 1000; background : url(assets/img/batikcover.png); box-shadow : inset 0 0 10vw #000000; width : 100vw; height : 50vw; background-size: cover'>
+  <ion-row>
+        <ion-fab style='transition : all 0.5s;' [style.opacity]="opacityTentang" [style.visibility]="visibilityTentang">
+          <div style='z-index : 1000; background : url(assets/img/batikcover.png); transition : all 0.5s; box-shadow : inset 0 0 10vw #000000; width : 100vw;  background-size: cover' [style.height]="heightTentang" >
             <ion-grid>
               <ion-row>
                 <ion-col text-center size="6" offset="3" style='padding : 0 0 0 0;'>
@@ -29,8 +29,179 @@
                 </ion-col>
               </ion-row>
               <ion-row>
+                <ion-col text-center size="6" offset="3" style='padding-top : 1vw; padding-left : 4vw; padding-right : 4vw;'>
+                    <div (click)='changeHeight()' id='buttonpkkmb' style=' font-size : 3.5vw; color : white; padding-top : 1.5vw; display: inline-block; vertical-align : middle; border-color: white; border-width: 0.4vw; border-style:solid;  width:100%; height:8vw; background : rgba(0,0,0,0.5);'><span style='line-height:  1vw; vertical-align : middle; display: inline-block;'>Jelajahi PKKMB</span></div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-fab>
+		<ion-fab style='transition : all 0.5s;' [style.opacity]="opacityTentang2" [style.visibility]="visibilityTentang2">
+		<ion-fab style='position: absolute; top : 0;'>		
+								<ion-toolbar style=' width: 100vw; background: rgba(0,0,0,0.5); --indicator-color-checked: white; color: white; --ion-color-base: var(white, white) !important;
+								--ion-color-warning: white; --background: var(--ion-toolbar-background,var(--ion-background-color,transparent));'>
+								<ion-segment  style='background: rgba(0,0,0,0.5)' (ionChange)="segmentChanged()" [(ngModel)]="segment" color="warning" scrollable>
+								<ion-segment-button value="0" >
+								<ion-label>Logo</ion-label>
+								</ion-segment-button>
+								<ion-segment-button value="1">
+								<ion-label>Maskot</ion-label>
+								</ion-segment-button>
+								<ion-segment-button value="2">
+								<ion-label>Tema</ion-label>
+								</ion-segment-button>
+								</ion-segment>
+								</ion-toolbar>
+							
+			</ion-fab>
+			<ion-fab style='position: absolute; bottom : 0;'>
+				<div (click)='changeHeightReverse()' style='width : 100vw; font-size : 5vw; color : white; border-color: white; border-width: 0.4vw; border-style:solid;  height:15vw; background : rgba(0,0,0,0.5);'>
+					<ion-grid>
+						<ion-row>
+							<ion-col text-center size="6" offset="3">
+								<span style='margin-top:  5vw; vertical-align : middle; display: inline-block; text-align : center;'>Sembunyikan</span>
+							</ion-col>
+						</ion-row>
+					</ion-grid>
+				</div>
+			</ion-fab>
+           <ion-slides #slides style=' width : 100vw; background-size: cover; transition : all 0.5s;' [style.height]="heightTentang">
+            
+			
+			<ion-slide>
+			
+                <ion-content  #content [scrollEvents]='true'> 
+                <ion-card style=' margin-left : 0vw; margin-top : 0vw; margin-right : 0vw; margin-bottom : 0vw; margin-inline-start: 0vw; margin-inline-end: 0vw; padding-left : 0vw; padding-top : 0vw; padding-right : 0vw; padding-bottom : 0vw;'>
+                  <ion-card-content style='margin-left : 0vw; margin-top : 0vw; margin-right : 0vw; margin-bottom : 0vw; margin-inline-start: 0vw; margin-inline-end: 0vw; padding-left : 0vw; padding-top : 0vw; padding-right : 0vw; padding-bottom : 0vw;'>
+                    <ion-list style=' margin-left : 0vw; margin-top : 0vw; margin-right : 0vw; margin-bottom : 0vw; margin-inline-start: 0vw; margin-inline-end: 0vw; padding-left : 0vw; padding-top : 0vw; padding-right : 0vw; padding-bottom : 0vw;'>
+<!-- ION ITEM MABA 1 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                      <ion-item style='--padding-start: 0;   --inner-padding-end: 0;'>
+                        <div style='width : 100vw; height : 15vw; background : url(assets/img/symphony.png); '>
+                          
+                        </div>
+                      </ion-item>
+					  <ion-item style='--padding-start: 0;   --inner-padding-end: 0;'>
+                        <div style='width : 100vw; height : 141vw; background : url(assets/img/symphony.png); '>
+                          <img style='height : 100%; width: 100%; position : absolute; top : 0; left : 0;' src="assets/img/filologo.jpg" tappable >
+                        </div>
+                      </ion-item>
+					  <ion-item style='--padding-start: 0;   --inner-padding-end: 0;'>
+                        <div style='width : 100vw; height : 141vw; background : url(assets/img/filotag.jpg);'>
+						  <img style='height : 100%; width: 100%; position : absolute; top : 0; left : 0;' src="assets/img/filotag.jpg" tappable >
+						  <img style='height : 45vw; width: 100%; position : absolute; top : 5vw; left : 0;' src="assets/img/tagline.png" tappable >
+						  <div style='position : absolute; top : 55vw; width: 100vw; height : 50vw; background : grey; '> <p style='font-size : 3.6vw; position : absolute; top : 0; width: 100vw; height : 50vw; text-align : center; color : white; font-weight : bold; vertical-align : middle'>Video Tidak Termuat, Tidak Ada Koneksi!</p><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"  style='position : absolute; top : 0; left: 0; width: 100vw; height : 50vw; '  src="https://www.youtube.com/embed/RaMh0QSfoFc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+						  <p style='font-size : 3.6vw; position : absolute; top : 110vw; width: 100vw; height : 50vw; text-align : center;'>Untuk Memulai video di atas pastikan anda terhubung internet</p>
+                        </div>
+                      </ion-item>
+					  
+					  <ion-item style='--padding-start: 0;   --inner-padding-end: 0;'>
+                        <div style='width : 100vw; height : 15vw; background : url(assets/img/symphony.png); '>
+                          
+                        </div>
+                      </ion-item>
+					</ion-list>
+                  </ion-card-content>
+                </ion-card>
+              </ion-content>
+			</ion-slide>
+			<ion-slide>
+                <ion-content  #content [scrollEvents]='true'> 
+                <ion-card style=' margin-left : 0vw; margin-top : 0vw; margin-right : 0vw; margin-bottom : 0vw; margin-inline-start: 0vw; margin-inline-end: 0vw; padding-left : 0vw; padding-top : 0vw; padding-right : 0vw; padding-bottom : 0vw;'>
+                  <ion-card-content style='margin-left : 0vw; margin-top : 0vw; margin-right : 0vw; margin-bottom : 0vw; margin-inline-start: 0vw; margin-inline-end: 0vw; padding-left : 0vw; padding-top : 0vw; padding-right : 0vw; padding-bottom : 0vw;'>
+                    <ion-list style=' margin-left : 0vw; margin-top : 0vw; margin-right : 0vw; margin-bottom : 0vw; margin-inline-start: 0vw; margin-inline-end: 0vw; padding-left : 0vw; padding-top : 0vw; padding-right : 0vw; padding-bottom : 0vw;'>
+<!-- ION ITEM MABA 1 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                      
+					  <ion-item style='--padding-start: 0;   --inner-padding-end: 0;'>
+                        <div style='width : 100vw; height : 141vw; background : url(assets/img/symphony.png); '>
+                          <img style='height : 100%; width: 100%; position : absolute; top : 0; left : 0;' src="assets/img/radja.jpg" tappable >
+                        </div>
+                      </ion-item>
+					  <ion-item style='--padding-start: 0;   --inner-padding-end: 0;'>
+                        <div style='width : 100vw; height : 141vw; background : url(assets/img/filotag.jpg);'>
+						  <img style='height : 100%; width: 100%; position : absolute; top : 0; left : 0;' src="assets/img/ratoe.jpg" tappable >
+                        </div>
+                      </ion-item>
+					</ion-list>
+                  </ion-card-content>
+                </ion-card>
+              </ion-content>
+			</ion-slide>
+			<ion-slide>
+                <ion-content  #content [scrollEvents]='true'> 
+                <ion-card style=' margin-left : 0vw; margin-top : 0vw; margin-right : 0vw; margin-bottom : 0vw; margin-inline-start: 0vw; margin-inline-end: 0vw; padding-left : 0vw; padding-top : 0vw; padding-right : 0vw; padding-bottom : 0vw;'>
+                  <ion-card-content style='margin-left : 0vw; margin-top : 0vw; margin-right : 0vw; margin-bottom : 0vw; margin-inline-start: 0vw; margin-inline-end: 0vw; padding-left : 0vw; padding-top : 0vw; padding-right : 0vw; padding-bottom : 0vw;'>
+                    <ion-list style=' margin-left : 0vw; margin-top : 0vw; margin-right : 0vw; margin-bottom : 0vw; margin-inline-start: 0vw; margin-inline-end: 0vw; padding-left : 0vw; padding-top : 0vw; padding-right : 0vw; padding-bottom : 0vw;'>
+<!-- ION ITEM MABA 1 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+                      <ion-item style='--padding-start: 0;   --inner-padding-end: 0;'>
+                        <div style='width : 100vw; height : 15vw; background : url(assets/img/symphony.png); '>
+                          
+                        </div>
+                      </ion-item>
+					  <ion-item style='--padding-start: 0;   --inner-padding-end: 0;'>
+                        <div style='width : 100vw; height : 200vw; background : url(assets/img/symphony.png); '>
+                          <div style='margin-top : 5vw; margin-left: 5vw; margin-right : 5vw;'>
+							<img style='height : 50vw; width:50vw; margin-left : 25vw; margin-right : 25vw;' src="assets/icon/logo.png" tappable >
+							<br>
+							<p style='font-size : 5vw; font-weight : bold; text-align : center;'>MAKNA TEMA BESAR PURWABRATA PKKMB UNS 2019</p>
+							<br>
+							<p style='font-size : 4.5vw; font-weight : bold; text-align : center;'>Sinergi Ksatria Nagari</p>
+							<br>
+							<p style='font-size : 3.6vw; font-weight : bold; text-align : justify;'>Sinergi memiliki arti suatu bentuk gabungan atau kolaborasi sehingga menghasilkan sesuatu yang optimum. Kesatria merupakan seorang pemimpin, gagah berani, penegak keadilan, dan membela kebenaran. Nagari berarti asal. Maka, Sinergi Kesatria Nagari mempunyai makna gabungan atau kolaborasi dari mahasiswa – mahasiswi Universitas Sebelas Maret yang berasal dari identitas atau asal daerah masing – masing yang berbeda – beda, sehingga diharapkan mampu menjadi kebanggaan kampus dan penerus bangsa Indonesia.
+							</p>
+						  </div>
+                        </div>
+                      </ion-item>
+					  <ion-item style='--padding-start: 0;   --inner-padding-end: 0;'>
+                        <div style='width : 100vw; height : 15vw; background : url(assets/img/symphony.png); '>
+                          
+                        </div>
+                      </ion-item>
+					</ion-list>
+                  </ion-card-content>
+                </ion-card>
+              </ion-content>
+			</ion-slide>
+          </ion-slides>
+        </ion-fab>
+      <ion-col style='background : black; padding-left : 0vw; padding-top : 0vw; padding-right : 0vw; padding-bottom : 0vw;'>
+          <ion-slides [options]='sliderOpts' style=' width : 100vw; background-size: cover; transition : all 0.5s;' [style.height]="heightTentang" [style.opacity]="opacityTentang">
+           
+            <ion-slide>
+                <div style='background : url(assets/img/unscover.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(0, 0, 0, 0.4); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+            <ion-slide>
+                <div style='background : url(assets/img/unscover2.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(12, 98, 109, 0.363); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+            <ion-slide>
+                <div style='background : url(assets/img/unscover.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(12, 98, 109, 0.363); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+            <ion-slide>
+                <div style='background : url(assets/img/unscover2.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(12, 98, 109, 0.363); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+            <ion-slide>
+                <div style='background : url(assets/img/unscover.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(12, 98, 109, 0.363); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+          </ion-slides>
+        
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-fab>
+          <div style='z-index : 1000; background : url(assets/img/batikcover2.png); box-shadow : inset 0 0 10vw #000000; width : 100vw; height : 50vw; background-size: cover'>
+            <ion-grid>
+              <ion-row>
+                <ion-col text-center size="6" offset="3" style='padding : 0 0 0 0; margin-top : 13vw; margin-left : 0; margin-right : 0;'>
+                    <ion-label style='width : 1000vw; color : white; font-size : 7vw; font-weight : bold; color: white; text-align : center;'>TENTANG UNS</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
                 <ion-col text-center size="6" offset="3">
-                    <ion-button>More Info..</ion-button>
+                    <ion-label style='width : 100vw;   color : white; font-size : 3vw; color : white; text-align : center;'>Ketahui hal-hal mengenai UNS</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col text-center size="6" offset="3" style='padding : 0 0 0 0;'>
+                    <ion-label style='width : 100vw;  color : white; font-size : 3vw; color : white; text-align : center;'>Lakukan Tap Untuk Membuka</ion-label>
                 </ion-col>
               </ion-row>
             </ion-grid>
@@ -61,18 +232,141 @@
       </ion-col>
     </ion-row>
     <ion-row>
+        <ion-fab>
+          <div style='z-index : 1000; background : url(assets/img/batikcover2.png); box-shadow : inset 0 0 10vw #000000; width : 100vw; height : 50vw; background-size: cover'>
+            <ion-grid>
+              <ion-row>
+                <ion-col text-center size="6" offset="3" style='padding : 0 0 0 0; margin-top : 13vw; margin-left : 0; margin-right : 0;'>
+                    <ion-label style='width : 1000vw; color : white; font-size : 7vw; font-weight : bold; color: white; text-align : center;'>TENTANG FAKULTAS</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col text-center size="6" offset="3">
+                    <ion-label style='width : 100vw;   color : white; font-size : 3vw; color : white; text-align : center;'>Ketahui hal-hal mengenai Fakultas di UNS</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col text-center size="6" offset="3" style='padding : 0 0 0 0;'>
+                    <ion-label style='width : 100vw;  color : white; font-size : 3vw; color : white; text-align : center;'>Lakukan Tap Untuk Membuka</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-fab>
       <ion-col style='background : black; padding-left : 0vw; padding-top : 0vw; padding-right : 0vw; padding-bottom : 0vw;'>
-        <div style='background : green; width : 100vw; height : 50vw'></div>
+
+          
+          <ion-slides [options]='sliderOpts' style=' width : 100vw; height : 50vw; background-size: cover'>
+           
+            <ion-slide>
+                <div style='background : url(assets/img/unscover.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(0, 0, 0, 0.4); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+            <ion-slide>
+                <div style='background : url(assets/img/unscover2.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(12, 98, 109, 0.363); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+            <ion-slide>
+                <div style='background : url(assets/img/unscover.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(12, 98, 109, 0.363); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+            <ion-slide>
+                <div style='background : url(assets/img/unscover2.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(12, 98, 109, 0.363); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+            <ion-slide>
+                <div style='background : url(assets/img/unscover.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(12, 98, 109, 0.363); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+          </ion-slides>
+        
       </ion-col>
     </ion-row>
     <ion-row>
+        <ion-fab>
+          <div style='z-index : 1000; background : url(assets/img/batikcover2.png); box-shadow : inset 0 0 10vw #000000; width : 100vw; height : 50vw; background-size: cover'>
+            <ion-grid>
+              <ion-row>
+                <ion-col text-center size="6" offset="3" style='padding : 0 0 0 0; margin-top : 13vw; margin-left : 0; margin-right : 0;'>
+                    <ion-label style='width : 1000vw; color : white; font-size : 7vw; font-weight : bold; color: white; text-align : center;'>UKM UNS</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col text-center size="6" offset="3">
+                    <ion-label style='width : 100vw;   color : white; font-size : 3vw; color : white; text-align : center;'>Ketahui seluk beluk Unit Kegiatan Mahasiswa UNS</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col text-center size="6" offset="3" style='padding : 0 0 0 0;'>
+                    <ion-label style='width : 100vw;  color : white; font-size : 3vw; color : white; text-align : center;'>Lakukan Tap Untuk Membuka</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-fab>
       <ion-col style='background : black; padding-left : 0vw; padding-top : 0vw; padding-right : 0vw; padding-bottom : 0vw;'>
-        <div style='background : green; width : 100vw; height : 50vw'></div>
+
+          
+          <ion-slides [options]='sliderOpts' style=' width : 100vw; height : 50vw; background-size: cover'>
+           
+            <ion-slide>
+                <div style='background : url(assets/img/unscover.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(0, 0, 0, 0.4); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+            <ion-slide>
+                <div style='background : url(assets/img/unscover2.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(12, 98, 109, 0.363); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+            <ion-slide>
+                <div style='background : url(assets/img/unscover.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(12, 98, 109, 0.363); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+            <ion-slide>
+                <div style='background : url(assets/img/unscover2.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(12, 98, 109, 0.363); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+            <ion-slide>
+                <div style='background : url(assets/img/unscover.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(12, 98, 109, 0.363); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+          </ion-slides>
+        
       </ion-col>
     </ion-row>
     <ion-row>
+        <ion-fab>
+          <div style='z-index : 1000; background : url(assets/img/batikcover2.png); box-shadow : inset 0 0 10vw #000000; width : 100vw; height : 50vw; background-size: cover'>
+            <ion-grid>
+              <ion-row>
+                <ion-col text-center size="6" offset="3" style='padding : 0 0 0 0; margin-top : 13vw; margin-left : 0; margin-right : 0;'>
+                    <ion-label style='width : 1000vw; color : white; font-size : 7vw; font-weight : bold; color: white; text-align : center;'>KOMUNITAS DAERAH</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col text-center size="6" offset="3">
+                    <ion-label style='width : 100vw;   color : white; font-size : 3vw; color : white; text-align : center;'>Informasi Komda UNS</ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col text-center size="6" offset="3" style='padding : 0 0 0 0;'>
+                    <ion-label style='width : 100vw;  color : white; font-size : 3vw; color : white; text-align : center;'>Lakukan Tap Untuk Membuka</ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </ion-fab>
       <ion-col style='background : black; padding-left : 0vw; padding-top : 0vw; padding-right : 0vw; padding-bottom : 0vw;'>
-        <div style='background : green; width : 100vw; height : 50vw'></div>
+
+          
+          <ion-slides [options]='sliderOpts' style=' width : 100vw; height : 50vw; background-size: cover'>
+           
+            <ion-slide>
+                <div style='background : url(assets/img/unscover.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(0, 0, 0, 0.4); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+            <ion-slide>
+                <div style='background : url(assets/img/unscover2.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(12, 98, 109, 0.363); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+            <ion-slide>
+                <div style='background : url(assets/img/unscover.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(12, 98, 109, 0.363); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+            <ion-slide>
+                <div style='background : url(assets/img/unscover2.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(12, 98, 109, 0.363); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+            <ion-slide>
+                <div style='background : url(assets/img/unscover.png); width : 100vw; height : 50vw; background-size: cover '><div style='background : rgba(12, 98, 109, 0.363); width : 100vw; height : 50vw; '></div></div>
+            </ion-slide>
+          </ion-slides>
+        
       </ion-col>
     </ion-row>
     <ion-row>

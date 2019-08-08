@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonContent } from '@ionic/angular';
+import { IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-tentang',
@@ -6,6 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tentang.page.scss'],
 })
 export class TentangPage implements OnInit {
+	heightTentang: String = '50vw';
+	opacityTentang: Number = 1;
+	opacityTentang2: Number = 0;
+	visibilityTentang: String = 'visible';
+	visibilityTentang2: String = 'hidden';
+	
+	@ViewChild('slides') slider: IonSlides;
+	segment = 0;
+  
+  
+
+  choice: number = 1;
+  menua: any;
+	
+	
+	
+	
   sliderOpts = {
     speed : 2000,
     autoplay : true,
@@ -72,5 +91,64 @@ export class TentangPage implements OnInit {
 
   ngOnInit() {
   }
+  
+  @ViewChild('content1') content1;
+  
+  
+  changeHeight(){
+	  this.heightTentang= '92vh';
+	  this.opacityTentang = 0;
+	  this.opacityTentang2 = 1;
+	  
+	  this.visibilityTentang = 'hidden';
+	  this.visibilityTentang2 = 'visible';
+	  
+	  
+	  this.content1.scrollY = false;
+  }
+  
+  changeHeightReverse(){
+	  this.heightTentang= '50vw';
+	  this.opacityTentang = 1;
+	  this.opacityTentang2 = 0;
+	  
+	  this.visibilityTentang = 'visible';
+	  this.visibilityTentang2 = 'hidden';
+	  
+	  
+	  this.content1.scrollY = true;
+  }
+  
+  ngAfterViewInit() {
+    this.slider.lockSwipes(true);
+  }
+
+  async segmentChanged() {
+	this.slider.lockSwipes(false);
+    await this.slider.slideTo(this.segment);
+  }
+
+  async slideChanged() {
+    this.segment = await this.slider.getActiveIndex();
+	this.slider.lockSwipes(true);
+	if(this.segment == 0){
+		this.choice = 1;
+	}else{
+		this.choice = 2;
+	}
+  }
+
+
+
+  changeState(pilihan: number) {
+    if (pilihan === 1) {
+      this.choice = 1;
+    } else if (pilihan === 2) {
+      this.choice = 2;
+    }
+
+  }
+
+  
 
 }
