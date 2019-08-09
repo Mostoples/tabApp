@@ -24,10 +24,12 @@ export class AduanPage implements OnInit {
   fakultase = '';
   user = '';
   
-  model = '' 
-  deviceID = '' 
-  deviceVersion = '' 
+  model = '' ;
+  deviceID = ''; 
+  deviceVersion = '';
   
+  warn = '<br> ----------------------------Jangan Dihapus-------------------------------';
+  warn2 = '<br><br> Informasi di atas diperlukan untuk memproses laporan anda, harap untuk tidak mengubah ataupun menghapus informasi di atas untuk kelancaran bersama';
   
   platformStr: String[] = ['undefined','undefined','undefined'];
 
@@ -50,9 +52,9 @@ export class AduanPage implements OnInit {
 
   send(){
 	 
-	 this.isiEmail2 = this.isiEmail + "<br>" + this.namae + this.user + this.ide + this.prodie + this.fakultase  +  this.platformStr[0] + this.model + this.deviceVersion;
+	 this.isiEmail2 = this.isiEmail + "<br>" + this.namae + this.user + this.ide + this.prodie + this.fakultase  +  this.warn + this.platformStr[0] + this.model + this.deviceVersion + this.warn2;
 	 
-	  
+	 
      let email = {
        to: 'purwabrata@gmail.com',
        subject: this.subject,
