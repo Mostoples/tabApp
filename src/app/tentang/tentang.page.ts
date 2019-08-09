@@ -14,16 +14,72 @@ export class TentangPage implements OnInit {
 	visibilityTentang: String = 'visible';
 	visibilityTentang2: String = 'hidden';
 	
+	
+	height2Tentang: String = '50vw';
+	opacity2Tentang: Number = 1;
+	opacity2Tentang2: Number = 0;
+	visibility2Tentang: String = 'visible';
+	visibility2Tentang2: String = 'hidden';
+	
+	
+	height3Tentang: String = '50vw';
+	opacity3Tentang: Number = 1;
+	opacity3Tentang2: Number = 0;
+	visibility3Tentang: String = 'visible';
+	visibility3Tentang2: String = 'hidden';
+	
+	
+	height4Tentang: String = '50vw';
+	opacity4Tentang: Number = 1;
+	opacity4Tentang2: Number = 0;
+	visibility4Tentang: String = 'visible';
+	visibility4Tentang2: String = 'hidden';
+	
+	
+	height5Tentang: String = '50vw';
+	opacity5Tentang: Number = 1;
+	opacity5Tentang2: Number = 0;
+	visibility5Tentang: String = 'visible';
+	visibility5Tentang2: String = 'hidden';
+	
+	
+	
+	@ViewChild('content1') content1;
+	
 	@ViewChild('slides') slider: IonSlides;
 	segment = 0;
   
+	@ViewChild('con1') con1;
+	
+	choice: number = 1;
   
+  posYCon : number[] = [0,0,0,0,0];
+  
+  state : boolean = false;
+ 
 
-  choice: number = 1;
-  menua: any;
-	
-	
-	
+  assignVal(){
+    for(let i = 0; i < 5; i++){
+      this.posYCon[i] = this.con1.nativeElement.getBoundingClientRect().height * i;
+    }
+    
+    
+  }
+
+  firstUse(){
+    if(this.state === false){
+      this.assignVal();
+      this.state = true;
+    }
+  }
+
+  ScrollToPoint(choosein : number){
+	this.firstUse();
+
+	this.content1.scrollToPoint(0,this.posYCon[choosein],100);
+
+  }
+  
 	
   sliderOpts = {
     speed : 2000,
@@ -92,7 +148,7 @@ export class TentangPage implements OnInit {
   ngOnInit() {
   }
   
-  @ViewChild('content1') content1;
+  
   
   
   changeHeight(){
@@ -103,8 +159,11 @@ export class TentangPage implements OnInit {
 	  this.visibilityTentang = 'hidden';
 	  this.visibilityTentang2 = 'visible';
 	  
+	  setTimeout(() => {
+		this.content1.scrollY = false;
+		}, 500);
+		
 	  
-	  this.content1.scrollY = false;
   }
   
   changeHeightReverse(){
@@ -118,6 +177,126 @@ export class TentangPage implements OnInit {
 	  
 	  this.content1.scrollY = true;
   }
+  
+  
+   changeHeight2(){
+	  this.height2Tentang= '92vh';
+	  this.opacity2Tentang = 0;
+	  this.opacity2Tentang2 = 1;
+	  
+	  this.visibility2Tentang = 'hidden';
+	  this.visibility2Tentang2 = 'visible';
+	  
+	  setTimeout(() => {
+		this.content1.scrollY = false;
+		}, 500);
+		
+	  
+  }
+  
+  changeHeightReverse2(){
+	  this.height2Tentang= '50vw';
+	  this.opacity2Tentang = 1;
+	  this.opacity2Tentang2 = 0;
+	  
+	  this.visibility2Tentang = 'visible';
+	  this.visibility2Tentang2 = 'hidden';
+	  
+	  
+	  this.content1.scrollY = true;
+  }
+  
+  
+  
+  
+     changeHeight3(){
+	  this.height3Tentang= '92vh';
+	  this.opacity3Tentang = 0;
+	  this.opacity3Tentang2 = 1;
+	  
+	  this.visibility3Tentang = 'hidden';
+	  this.visibility3Tentang2 = 'visible';
+	  
+	  setTimeout(() => {
+		this.content1.scrollY = false;
+		}, 500);
+		
+	  
+  }
+  
+  changeHeightReverse3(){
+	  this.height3Tentang= '50vw';
+	  this.opacity3Tentang = 1;
+	  this.opacity3Tentang2 = 0;
+	  
+	  this.visibility3Tentang = 'visible';
+	  this.visibility3Tentang2 = 'hidden';
+	  
+	  
+	  this.content1.scrollY = true;
+  }
+  
+  
+  
+     changeHeight4(){
+	  this.height4Tentang= '92vh';
+	  this.opacity4Tentang = 0;
+	  this.opacity4Tentang2 = 1;
+	  
+	  this.visibility4Tentang = 'hidden';
+	  this.visibility4Tentang2 = 'visible';
+	  
+	  setTimeout(() => {
+		this.content1.scrollY = false;
+		}, 500);
+		
+	  
+  }
+  
+  changeHeightReverse4(){
+	  this.height4Tentang= '50vw';
+	  this.opacity4Tentang = 1;
+	  this.opacity4Tentang2 = 0;
+	  
+	  this.visibility4Tentang = 'visible';
+	  this.visibility4Tentang2 = 'hidden';
+	  
+	  
+	  this.content1.scrollY = true;
+  }
+  
+  
+  
+     changeHeight5(){
+	  this.height5Tentang= '92vh';
+	  this.opacity5Tentang = 0;
+	  this.opacity5Tentang2 = 1;
+	  
+	  this.visibility5Tentang = 'hidden';
+	  this.visibility5Tentang2 = 'visible';
+	  
+	  setTimeout(() => {
+		this.content1.scrollY = false;
+		}, 500);
+		
+	  
+  }
+  
+  changeHeightReverse5(){
+	  this.height5Tentang= '50vw';
+	  this.opacity5Tentang = 1;
+	  this.opacity5Tentang2 = 0;
+	  
+	  this.visibility5Tentang = 'visible';
+	  this.visibility5Tentang2 = 'hidden';
+	  
+	  
+	  this.content1.scrollY = true;
+  }
+  
+  
+  
+  
   
   ngAfterViewInit() {
     this.slider.lockSwipes(true);

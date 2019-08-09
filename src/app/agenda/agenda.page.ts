@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
+ 
   selector: 'app-agenda',
   templateUrl: './agenda.page.html',
   styleUrls: ['./agenda.page.scss'],
 })
 export class AgendaPage implements OnInit {
+
+  
 
   constructor() { }
 
@@ -33,21 +36,21 @@ export class AgendaPage implements OnInit {
   ];
 
   public forms = [
-    { val: 'Kuliah Umum', isChecked: true },
+    { val: 'Kuliah Umum', isChecked: false},
   ];
 
   public form1 = [
-    { val: 'Have fun!', isChecked: true },
+    { val: 'Have fun!', isChecked: false },
   ];
 
   public form2 = [
-    { val: 'Upacara HUT RI', isChecked: true },
+    { val: 'Upacara HUT RI', isChecked: false },
     { val: 'Kuliah Umum', isChecked: false },
     { val: 'Motivasi ESQ', isChecked: false },
   ];
 
   public form3 = [
-    { val: 'Student Vaganza', isChecked: true },
+    { val: 'Student Vaganza', isChecked: false },
   ];
 
 }
