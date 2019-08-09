@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-
 import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
-import { LoadingController, ToastController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 
 
@@ -22,18 +19,13 @@ export class Tab3Page implements OnInit {
   prodie = '';
   fakultase = '';
   user = '';
- 
-  
- 
-  
-  
+  img: any;
+
   constructor(
     private authService: AuthenticationService,
     private router: Router,
     private loadingController: LoadingController,
     private storage: Storage,
-    private http: HttpClient,
-    private toastCtrl: ToastController,
     ) {
       this.storage.get('USER_INFO').then(res => {
         this.namae = res.NAMA_PESERTA;
@@ -41,18 +33,16 @@ export class Tab3Page implements OnInit {
         this.ide = res.NIM_PESERTA;
         this.prodie = res.PRODI_PESERTA;
         this.fakultase = res.FAKULTAS_PESERTA;
-        
+        this.img = res.FOTO;
       });
     }
 
     ngOnInit() {}
 
-    
+
     ionViewDidLeave() {
-      
       this.define1 = 1;
       this.define2 = 0;
-      
     }
 
   async getData(fun) {
@@ -78,15 +68,15 @@ export class Tab3Page implements OnInit {
   Profil() {
     this.define1 = 0;
     this.define2 = 1;
-    
+
   }
 
-  tab3(){
+  tab3() {
     this.define1 = 1;
     this.define2 = 0;
   }
 
-  
 
-    }
+
+}
 
