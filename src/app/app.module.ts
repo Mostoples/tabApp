@@ -22,6 +22,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { HeaderColor } from '@ionic-native/header-color/ngx';
 import { Device } from '@ionic-native/device/ngx';
+import { FCM } from '@ionic-native/fcm/ngx';
 
 @NgModule({
 
@@ -45,7 +46,8 @@ import { Device } from '@ionic-native/device/ngx';
     IonicStorageModule,
     InAppBrowser,
     HeaderColor,
-	Device,
+    Device,
+    FCM,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],
