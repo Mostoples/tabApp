@@ -3,6 +3,7 @@ import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
+import { FCM } from '@ionic-native/fcm/ngx';
 
 const goToHttp = 'https://purwabarata2019.uns.ac.id/panerusApp/';
 let tipe = '';
@@ -99,6 +100,7 @@ export class Tab2Page {
     private router: Router,
     private storage: Storage,
     private http: HttpClient,
+    private fcm: FCM
     ) {
       this.getAds();
       this.getNewestAgenda();
@@ -118,6 +120,7 @@ export class Tab2Page {
   }
 
   ionViewDidEnter() {
+    this.fire();
     this.getKabar();
   }
 
@@ -129,6 +132,20 @@ export class Tab2Page {
   next(para) {
     this.authenticationService.isAuthenticated();
     this.router.navigate([para]);
+  }
+
+  fire() {
+    this.fcm.getToken();
+
+    this.fcm.onTokenRefresh().subscribe();
+
+    this.fcm.onNotification().subscribe(data => {
+      if (data.wasTapped) {
+        this.router.navigate([data.landing_page]);
+      } else {
+        this.router.navigate([data.landing_page]);
+      }
+    });
   }
 
 }
