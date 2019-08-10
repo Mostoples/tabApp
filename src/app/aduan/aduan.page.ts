@@ -39,9 +39,8 @@ export class AduanPage implements OnInit {
         this.user = '<br>' + 'ID Peserta : ' + res.ID_PESERTA;
         this.prodie = '<br>' + 'Prodi : ' + res.PRODI_PESERTA;
         this.fakultase = '<br>' + 'Fakultas : ' + res.FAKULTAS_PESERTA;
-        
       });
-	  
+	
     this.platformStr = platform.platforms();
 	this.platformStr[0] = '<br>' + 'Platform : ' + this.platformStr[0];
 	this.model = '<br>' + 'Model : ' + device.model;
