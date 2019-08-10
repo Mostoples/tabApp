@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'tabs/agenda', loadChildren: './agenda/agenda.module#AgendaPageModule'},
   { path: 'tabs/lokasi', loadChildren: './lokasi/lokasi.module#LokasiPageModule'},
   { path: 'tabs/presensi', loadChildren: './presensi/presensi.module#PresensiPageModule'},
-  { path: 'tabs/tab3/aduan', loadChildren: './aduan/aduan.module#AduanPageModule' },
+  { path: 'tabs/tab3/aduan', loadChildren: './aduan/aduan.module#AduanPageModule' },  { path: 'tabs/tab3/tentangapp', loadChildren: './tentangapp/tentangapp.module#TentangappPageModule' },
+
 ];
 
 @NgModule({
