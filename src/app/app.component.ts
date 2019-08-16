@@ -31,15 +31,14 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.statusBar.overlaysWebView(false);
-      this.statusBar.styleBlackTranslucent();
       this.headerColor.tint('#6F76B7');
       this.splashScreen.hide();
 
       this.authenticationService.authState.subscribe(state => {
         if (state) {
-          this.router.navigate(['']);
+          this.router.navigate([''], {replaceUrl: true});
         } else {
-          this.router.navigate(['/login']);
+          this.router.navigate(['/landing'], {skipLocationChange: true});
         }
       });
     });

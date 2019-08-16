@@ -12,7 +12,6 @@ import { AppComponent } from './app.component';
 
 
 import { EmailComposer } from '@ionic-native/email-composer/ngx';
-import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -32,7 +31,6 @@ import { FCM } from '@ionic-native/fcm/ngx';
     BrowserModule,
     IonicModule.forRoot({scrollPadding: false, scrollAssist: true}),
     AppRoutingModule,
-    NgxQRCodeModule,
     HttpClientModule,
     IonicStorageModule.forRoot()
   ],

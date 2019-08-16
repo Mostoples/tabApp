@@ -25,7 +25,7 @@ export class AuthenticationService {
   ifLoggedIn() {
     this.storage.get('USER_INFO').then((response) => {
       if (response === null) {
-        this.router.navigate(['login']);
+        this.router.navigate(['landing'], {replaceUrl: true, skipLocationChange: true});
       } else {
         this.authState.next(true);
       }
@@ -34,7 +34,7 @@ export class AuthenticationService {
 
   login(userinfo) {
     this.storage.set('USER_INFO', userinfo).then(() => {
-      this.router.navigate(['tabs']);
+      this.router.navigate(['tabs'], {replaceUrl: true});
       this.authState.next(true);
     });
   }

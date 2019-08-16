@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
 import { FCM } from '@ionic-native/fcm/ngx';
+import { IonSlides } from '@ionic/angular';
 
 const goToHttp = 'https://purwabarata2019.uns.ac.id/panerusApp/';
 let tipe = '';
@@ -15,6 +16,7 @@ let tipe = '';
 })
 export class Tab2Page {
   @ViewChild('content') private content: any;
+  @ViewChild(IonSlides) slides: IonSlides;
 
   user = '';
   img: any;
@@ -26,7 +28,9 @@ export class Tab2Page {
     centeredSlides: true,
     slidesPreview: 1.6,
     loop: true,
-    autoplay: true
+    autoplay: true,
+    updateOnImageReady: true,
+    preventInteractionOnTransition: true,
   };
 
   menu = [
@@ -43,9 +47,16 @@ export class Tab2Page {
     [
       { name: 'people', title: 'Grup', route: 'tabs/grup', type: 'btn' },
       { name: 'bookmarks', title: 'Agenda', route: 'tabs/agenda', type: 'btn' },
+      // tslint:disable-next-line: max-line-length
       { name: 'pin', title: 'Lokasi', route: 'https://www.google.com/maps/place/Universitas+Sebelas+Maret,+Jl.+Ir+Sutami+No.36+A,+Pucangsawit,+Kec.+Jebres,+Kota+Surakarta,+Jawa+Tengah+57126/@-7.5596031,110.8565448,17z/data=!4m2!3m1!1s0x2e7a14234667a3fd:0xbda63b32997616ad', type: 'lnk' }
     ]
   ];
+
+  swiped(event) {
+    this.sliderConf.autoplay = true;
+    this.sliderConf.loop = true;
+    this.slides.startAutoplay();
+  }
 
   getKabar() {
     const postData = JSON.stringify({kabar: 'all'});
@@ -115,8 +126,7 @@ export class Tab2Page {
 
   ionViewWillEnter() {
     this.content.scrollToTop(300);
-    this.sliderConf.autoplay = true;
-    this.sliderConf.loop = true;
+    this.swiped(null);
   }
 
   ionViewDidEnter() {
@@ -125,8 +135,8 @@ export class Tab2Page {
   }
 
   ionViewDidLeave() {
-    this.sliderConf.autoplay = true;
-    this.sliderConf.loop = true;
+    this.content.scrollToTop(300);
+    this.swiped(null);
   }
 
   next(para) {
